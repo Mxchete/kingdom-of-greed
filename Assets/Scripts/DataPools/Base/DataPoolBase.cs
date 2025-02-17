@@ -1,17 +1,14 @@
-public abstract class DataPoolBase : MonoBehaviour
-{
-    private static Dictionary<System.Type, DataPoolBase> instances = new Dictionary<System.Type, DataPoolBase>();
+using System;
+using System.Collections.Generic;
+using UnityEngine;
 
-    public static T Instance<T>() where T : DataPoolBase
+public abstract class DataPoolBase
+{
+  protected DataPoolBase()
+  {
+    if (!GameDataPool.Instance.CanInstantiate())
     {
-        var type = typeof(T);
-        if (!instances.TryGetValue(type, out var instance))
-        {
-            var obj = new GameObject(type.Name);
-            instance = obj.AddComponent<T>();
-            instances[type] = instance;
-            DontDestroyOnLoad(obj);
-        }
-        return instance as T;
+      throw new InvalidOperationException("Instances of IDataPool implementations can only be created by GameDataPool.");
     }
+  }
 }
