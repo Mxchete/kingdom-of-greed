@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - menu
   - 
   - 
   - 
@@ -40,4 +40,25 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Water
+    uniqueID: 3563264921
+    locked: 0
+  - name: Ground
+    uniqueID: 3402741017
+    locked: 0
+  - name: Vegetation
+    uniqueID: 3147977925
+    locked: 0
+  - name: WalkInfront
+    uniqueID: 2042391777
+    locked: 0
+  - name: Player
+    uniqueID: 91807129
+    locked: 0
+  - name: WalkBehind
+    uniqueID: 1070561551
+    locked: 0
+  - name: Decor
+    uniqueID: 318605519
     locked: 0
