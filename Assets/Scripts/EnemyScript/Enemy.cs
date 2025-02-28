@@ -8,49 +8,65 @@ using Vector3 = UnityEngine.Vector3;
 
 public class Enemy : MonoBehaviour
 {
-
-    float health, maxHealth = 3f;
     public float moveSpeed = 2f;
+    public float detectionRange = 10f; // Distance within which the enemy will start following the player
+
     Rigidbody2D rb;
     Transform target;
     Vector2 moveDirection;
 
+    float health, maxHealth = 3f;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        
     }
+
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.Find("Player").transform;
         health = maxHealth;
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(target){
-            Vector3 direction = (target.position - transform.position).normalized;
-            moveDirection = direction;
+        if (target)
+        {
+            float distanceToPlayer = Vector3.Distance(target.position, transform.position);
 
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            // Check if the player is within the detection range
+            if (distanceToPlayer <= detectionRange)
+            {
+                Vector3 direction = (target.position - transform.position).normalized;
+                moveDirection = direction;
 
-            rb.rotation = angle;
+                // float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                // rb.rotation = angle;
+            }
+            else
+            {
+                // Stop moving if the player is out of range
+                moveDirection = Vector2.zero;
+            }
         }
-        
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new UnityEngine.Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
+        if (target)
+        {
+            rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
+        }
     }
 
-    public void TakeDamage(float damage){
+    public void TakeDamage(float damage)
+    {
         health -= damage;
 
-        if(health <= 0){
+        if (health <= 0)
+        {
             Destroy(gameObject);
         }
     }
