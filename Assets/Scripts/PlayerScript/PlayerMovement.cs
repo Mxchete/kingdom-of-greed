@@ -49,9 +49,10 @@ public class PlayerMovement : MonoBehaviour
     // Called once per physics frame - used for physics(used for our movement)
     private void FixedUpdate()
     {
-        rb.velocity = movement * moveSpeed;
-        if(isWalking)
-        {
+        rb.velocity = movement * moveSpeed *Time.fixedDeltaTime;
+
+        if(isWalking){
+
             Vector3 vector3 = Vector3.left * movement.x + Vector3.down * movement.y;
             Aim.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
         }
@@ -64,13 +65,13 @@ public class PlayerMovement : MonoBehaviour
         float InputX  = Input.GetAxisRaw("Horizontal");
         float InputY = Input.GetAxisRaw("Vertical");
 
+
         if((InputX == 0 && InputY == 0) && (movement.x != 0 || movement.y != 0) )
         {
             isWalking = false;
             lastMoveDirection = movement;
             Vector3 vector3 = Vector3.left * lastMoveDirection.x + Vector3.down * lastMoveDirection.y;
             Aim.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
-
         }
         else if(InputX != 0 || InputY != 0)
         {
@@ -78,8 +79,7 @@ public class PlayerMovement : MonoBehaviour
         }
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
-        movement.Normalize();
+       movement.Normalize();
 
     }
 
@@ -94,10 +94,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Flip()
     {
+        facingLeft = !facingLeft;
         Vector3 scale = transform.localScale;
         scale.x *= 1;
         transform.localScale = scale;
-        facingLeft = !facingLeft;
-
     }
 }

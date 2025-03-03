@@ -7,7 +7,7 @@ public class Attack : MonoBehaviour
 {
     public GameObject Melee;
     bool isAttacking = false;
-    float atkDuration = 0.3f;
+    float atkDuration = 0.1f;
     float atkTimer = 0f;
 
     public Transform Aim;
@@ -58,7 +58,6 @@ public class Attack : MonoBehaviour
         if(!isAttacking){
             Melee.SetActive(true);
             isAttacking = true;
-            // Call animator here
 
         }
     }
