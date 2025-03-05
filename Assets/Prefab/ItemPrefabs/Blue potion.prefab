@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue potion
       objectReference: {fileID: 0}
+    - target: {fileID: 3519858522287991837, guid: 907e765b462f9a447b903f96c26c3b68, type: 3}
+      propertyPath: m_IgnoreParentGroups
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4647432118623784084, guid: 907e765b462f9a447b903f96c26c3b68, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -50,11 +54,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4655932004981307319, guid: 907e765b462f9a447b903f96c26c3b68, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4655932004981307319, guid: 907e765b462f9a447b903f96c26c3b68, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4655932004981307319, guid: 907e765b462f9a447b903f96c26c3b68, type: 3}
       propertyPath: m_LocalScale.x
@@ -98,11 +102,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4655932004981307319, guid: 907e765b462f9a447b903f96c26c3b68, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -7.1099997
       objectReference: {fileID: 0}
     - target: {fileID: 4655932004981307319, guid: 907e765b462f9a447b903f96c26c3b68, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 16.92
       objectReference: {fileID: 0}
     - target: {fileID: 4655932004981307319, guid: 907e765b462f9a447b903f96c26c3b68, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
