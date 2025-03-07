@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -5472347540773925673, guid: 907e765b462f9a447b903f96c26c3b68, type: 3}
+      propertyPath: ID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5472347540773925673, guid: 907e765b462f9a447b903f96c26c3b68, type: 3}
       propertyPath: Name
       value: Potion
       objectReference: {fileID: 0}
@@ -22,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3519858522287991837, guid: 907e765b462f9a447b903f96c26c3b68, type: 3}
       propertyPath: m_IgnoreParentGroups
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4647432118623784084, guid: 907e765b462f9a447b903f96c26c3b68, type: 3}
       propertyPath: m_Sprite
@@ -54,11 +58,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4655932004981307319, guid: 907e765b462f9a447b903f96c26c3b68, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4655932004981307319, guid: 907e765b462f9a447b903f96c26c3b68, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4655932004981307319, guid: 907e765b462f9a447b903f96c26c3b68, type: 3}
       propertyPath: m_LocalScale.x
