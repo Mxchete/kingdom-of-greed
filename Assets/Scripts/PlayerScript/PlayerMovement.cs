@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
+
     }
     // Start is called before the first frame update
 
@@ -99,4 +100,6 @@ public class PlayerMovement : MonoBehaviour
         scale.x *= 1;
         transform.localScale = scale;
     }
+
+
 }

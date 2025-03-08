@@ -22,6 +22,11 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Animator animator; // The Animator component
 
+    [SerializeField] private float attackDamage = 10f;
+
+    [SerializeField] private float attackSpeed = 1f;
+
+    private float canAttack;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -47,7 +52,7 @@ public class Enemy : MonoBehaviour
             float distanceToPlayer = Vector3.Distance(target.position, transform.position);
 
             // Check if the player is within the detection range
-            if (distanceToPlayer <= detectionRange)
+            if (distanceToPlayer <= detectionRange && !animator.GetCurrentAnimatorStateInfo(0).IsName("DownAttack"))
             {
                 Vector3 direction = (target.position - transform.position).normalized;
                 moveDirection = direction;
@@ -78,6 +83,23 @@ public class Enemy : MonoBehaviour
         {
             rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
         }
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Player" ){
+            if(attackSpeed <= canAttack){
+                other.gameObject.GetComponent<playerHealth>().UpdateHealth(-attackDamage);
+                canAttack = 0f;
+
+                // trigger attack Animation
+                animator.SetTrigger("Attack");
+            }
+            else{
+                canAttack += Time.deltaTime;
+            }
+        }
+        
     }
 
     public void TakeDamage(float damage)

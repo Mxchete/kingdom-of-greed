@@ -25,7 +25,7 @@ public class Attack : MonoBehaviour
         shootTimer += Time.deltaTime;
 
         //If 'e' or left mouse clicker is pressed
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             // Attack
             OnAttack();

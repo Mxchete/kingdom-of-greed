@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6731349603542954202}
   - component: {fileID: 6900790372143829320}
   - component: {fileID: 1766643917410529442}
-  - component: {fileID: 2172620242652560324}
   - component: {fileID: 4041211872910900617}
   - component: {fileID: 2983675659157640454}
   - component: {fileID: 4590064541876064427}
@@ -104,22 +103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   Aim: {fileID: 4747679712978654164}
---- !u!114 &2172620242652560324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1824950505392046449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aadd92b0d36a84fef91514145a8cd97f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Melee: {fileID: 7456822189230060080}
-  Aim: {fileID: 4747679712978654164}
-  bullet: {fileID: 3207778641386009512, guid: cf9dee2ca822e4a8b997beba4dda589a, type: 3}
-  fireForce: 10
 --- !u!50 &4041211872910900617
 Rigidbody2D:
   serializedVersion: 4
