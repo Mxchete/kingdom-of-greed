@@ -6,42 +6,31 @@ using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Entity
 {
-    public float moveSpeed = 2f;
     public float detectionRange = 10f; // Distance within which the enemy will start following the player
-
-    Rigidbody2D rb;
     Transform target;
     Vector2 moveDirection;
 
-    [SerializeField] float health;
-    [SerializeField] float maxHealth = 3f;
-
     [SerializeField] FloatingHealthBar healthbar;
-    private SpriteRenderer spriteRenderer;
-    private Animator animator; // The Animator component
 
     [SerializeField] private float attackDamage = 10f;
 
     [SerializeField] private float attackSpeed = 1f;
 
     private float canAttack;
-    private void Awake()
+    protected override void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        base.Awake();
         healthbar = GetComponentInChildren<FloatingHealthBar>();
 
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         target = GameObject.Find("Player").transform;
-        health = maxHealth;
         healthbar.UpdateHealthBar(health, maxHealth);
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -87,41 +76,28 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Player" ){
-            if(attackSpeed <= canAttack){
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (attackSpeed <= canAttack)
+            {
                 other.gameObject.GetComponent<playerHealth>().UpdateHealth(-attackDamage);
                 canAttack = 0f;
 
                 // trigger attack Animation
                 animator.SetTrigger("Attack");
             }
-            else{
+            else
+            {
                 canAttack += Time.deltaTime;
             }
         }
-        
+
     }
 
-    public void TakeDamage(float damage)
+    public override void TakeDamage(float damage)
     {
-        health -= damage;
+        base.TakeDamage(damage);
         healthbar.UpdateHealthBar(health, maxHealth);
-
-        // Flash Red when Attacked
-        StartCoroutine(FlashRed());
-
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    private IEnumerator FlashRed()
-    {
-        Color originalColor = spriteRenderer.color; // Store the original color of the sprite
-        spriteRenderer.color = Color.red; // Change to red when hit
-        yield return new WaitForSeconds(0.1f); // Flash duration
-        spriteRenderer.color = originalColor;  // Restore original color
-
     }
 }
+
