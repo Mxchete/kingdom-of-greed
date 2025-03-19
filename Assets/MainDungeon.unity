@@ -243,15 +243,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec12bf9f0eaee32a9ac0ca30c77118e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 3, y: 3}
+  size: {x: 10, y: 10}
   startPos: 0
   rooms:
   - room: {fileID: 5261303353533836778, guid: 9328c9ca073d745cfa802366a4341019, type: 3}
     minPosition: {x: 0, y: 0}
-    maxPosition: {x: 999999, y: 999999}
+    maxPosition: {x: 9999, y: 9999}
     obligatory: 0
-  offset: {x: 91, y: 91}
-  seed: 0
+  offset: {x: 89, y: 89}
+  seed: 123
 --- !u!4 &2089726565
 Transform:
   m_ObjectHideFlags: 0

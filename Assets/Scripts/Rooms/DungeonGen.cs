@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,8 +24,9 @@ public class DungeonGenerator : MonoBehaviour
   public class Rule
   {
     public GameObject room;
-    public Vector2Int minPosition;
-    public Vector2Int maxPosition;
+    // public GameObject[] entities;
+    public Vector2Int minPosition = new Vector2Int(0, 0);
+    public Vector2Int maxPosition = new Vector2Int(Int32.MaxValue, Int32.MaxValue);
 
     public bool obligatory;
 
@@ -89,7 +91,7 @@ public class DungeonGenerator : MonoBehaviour
           {
             if (availableRooms.Count > 0)
             {
-              randomRoom = availableRooms[Random.Range(0, availableRooms.Count)];
+              randomRoom = availableRooms[UnityEngine.Random.Range(0, availableRooms.Count)];
             }
             else
             {
@@ -113,7 +115,7 @@ public class DungeonGenerator : MonoBehaviour
 
   void MazeGenerator()
   {
-    Random.seed = seed;
+    UnityEngine.Random.InitState(seed);
     board = new List<Cell>();
 
     for (int i = 0; i < size.x; i++)
@@ -160,7 +162,7 @@ public class DungeonGenerator : MonoBehaviour
       {
         path.Push(currentCell);
 
-        int newCell = neighbors[Random.Range(0, neighbors.Count)];
+        int newCell = neighbors[UnityEngine.Random.Range(0, neighbors.Count)];
 
         if (newCell > currentCell)
         {
