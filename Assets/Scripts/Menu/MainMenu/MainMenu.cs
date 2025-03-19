@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
 
     var sceneManager = instance.Get<KOGSceneManager>();
 
-    sceneManager.LoadScene("StartRoom");
+    // sceneManager.LoadScene("StartRoom");
+    sceneManager.LoadScene("Dungeon");
   }
 }
