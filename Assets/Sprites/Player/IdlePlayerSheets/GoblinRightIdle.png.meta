@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a88604d1f99394502b35224694c87f23
+guid: 66904ba9e7745470e80f421c733d5a79
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,64 +110,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GoblinUpIdle-Sheet_0
+      name: GoblinRightIdle_0
       rect:
         serializedVersion: 2
-        x: 34
+        x: 14
         y: 15
-        width: 16
+        width: 17
         height: 17
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3db22ed54c0a449f8cb99d3a25690e1
-      internalID: 1276466776
+      spriteID: b23cc017a483f43b0a1ec2fc7662be97
+      internalID: -1529457814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GoblinUpIdle-Sheet_1
+      name: GoblinRightIdle_1
       rect:
         serializedVersion: 2
-        x: 98
+        x: 78
         y: 15
-        width: 16
+        width: 18
         height: 17
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 700a8fc463f89467a891d0fe9411283b
-      internalID: -930993938
+      spriteID: 2ff75d481b4074f869cdfc65fd657f19
+      internalID: 1954281418
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GoblinUpIdle-Sheet_2
+      name: GoblinRightIdle_2
       rect:
         serializedVersion: 2
-        x: 162
+        x: 142
         y: 15
-        width: 16
+        width: 18
         height: 17
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55cb154f046944f56890e1e4e281a77f
-      internalID: 1295765809
+      spriteID: 3e1d2d177614b4801a6a6f4154efcb15
+      internalID: -493335416
       vertices: []
       indices: 
       edges: []
@@ -183,9 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GoblinUpIdle-Sheet_0: 1276466776
-      GoblinUpIdle-Sheet_1: -930993938
-      GoblinUpIdle-Sheet_2: 1295765809
+      GoblinRightIdle_0: -1529457814
+      GoblinRightIdle_1: 1954281418
+      GoblinRightIdle_2: -493335416
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

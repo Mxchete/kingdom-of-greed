@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5d62c4fbcc73544af96488d99d017c00
+guid: e51c9fb11e4ee406980d274cfca85f47
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,106 +110,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GoblinRightWalk-Sheet_0
+      name: GoblinUpIdle_0
       rect:
         serializedVersion: 2
-        x: 13
+        x: 34
         y: 15
-        width: 18
+        width: 16
         height: 17
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7249921715514f53b634f7a0edb43c3
-      internalID: 2029319382
+      spriteID: e3c84d91029444a17a6815ce6f56a542
+      internalID: 212373667
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GoblinRightWalk-Sheet_1
+      name: GoblinUpIdle_1
       rect:
         serializedVersion: 2
-        x: 77
+        x: 98
         y: 15
-        width: 18
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bd08118464cae47b3a98685556a9ed38
-      internalID: -1194203509
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GoblinRightWalk-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 141
-        y: 15
-        width: 18
+        width: 16
         height: 17
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79a4fe511b932460d83bc35aee982eb8
-      internalID: 2009327293
+      spriteID: 6392785a99b634fd3a3167805f3b3ae2
+      internalID: 1262439693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GoblinRightWalk-Sheet_3
+      name: GoblinUpIdle_2
       rect:
         serializedVersion: 2
-        x: 205
+        x: 162
         y: 15
-        width: 18
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 611804f6601974e3d970d1d4170f0e01
-      internalID: -243160176
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GoblinRightWalk-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 269
-        y: 15
-        width: 18
+        width: 16
         height: 17
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87b0b63a605c44749bdd2c1bdb7aa9e6
-      internalID: 889367310
+      spriteID: e4dc5fe2d41144043a6bc26ceec541be
+      internalID: -653716158
       vertices: []
       indices: 
       edges: []
@@ -225,11 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GoblinRightWalk-Sheet_0: 2029319382
-      GoblinRightWalk-Sheet_1: -1194203509
-      GoblinRightWalk-Sheet_2: 2009327293
-      GoblinRightWalk-Sheet_3: -243160176
-      GoblinRightWalk-Sheet_4: 889367310
+      GoblinUpIdle_0: 212373667
+      GoblinUpIdle_1: 1262439693
+      GoblinUpIdle_2: -653716158
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

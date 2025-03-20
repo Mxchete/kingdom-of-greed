@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 91ef1a653182144a5abadc8d18134c24
+guid: 7c279d2a97b8c4338b103a8983ac0e7a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,64 +110,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GoblinRightIdle-Sheet_0
+      name: LeshenDownIdle_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 15
-        width: 18
-        height: 17
+        x: 18
+        y: 4
+        width: 24
+        height: 38
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1f0b91501e2f43ffb3ac18e5c6106f0
-      internalID: -1796390428
+      spriteID: aa6d917f3b6b14f8cbb2daa3d54a751c
+      internalID: 726248112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GoblinRightIdle-Sheet_1
+      name: LeshenDownIdle_1
       rect:
         serializedVersion: 2
-        x: 77
-        y: 15
-        width: 18
-        height: 17
+        x: 82
+        y: 4
+        width: 24
+        height: 38
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c9c67dcae471443990c8e2bc6362fb0
-      internalID: -382552705
+      spriteID: 760523e7051404f62843d69479219059
+      internalID: -1959936226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GoblinRightIdle-Sheet_2
+      name: LeshenDownIdle_2
       rect:
         serializedVersion: 2
-        x: 141
-        y: 15
-        width: 18
-        height: 17
+        x: 146
+        y: 4
+        width: 24
+        height: 38
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c7e237103ca84f299e52b702e4c461e
-      internalID: 458800463
+      spriteID: 216728289ec6842b2b0e10bd13ed5d4a
+      internalID: -1586237536
       vertices: []
       indices: 
       edges: []
@@ -183,9 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GoblinRightIdle-Sheet_0: -1796390428
-      GoblinRightIdle-Sheet_1: -382552705
-      GoblinRightIdle-Sheet_2: 458800463
+      LeshenDownIdle_0: 726248112
+      LeshenDownIdle_1: -1959936226
+      LeshenDownIdle_2: -1586237536
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
