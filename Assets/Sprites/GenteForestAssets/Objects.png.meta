@@ -3376,18 +3376,26 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Objects_155
+      name: Hand1-2
       rect:
         serializedVersion: 2
-        x: 209
+        x: 220
         y: 176
-        width: 61
-        height: 62
+        width: 50
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 13, y: -14.5}
+        - {x: -4, y: -14.5}
+        - {x: -6, y: -6.5}
+        - {x: -13, y: -2.5}
+        - {x: -9, y: 14.5}
+        - {x: 25, y: 14.5}
+        - {x: 25, y: -1.5}
+        - {x: 23, y: -13.5}
       tessellationDetail: 0
       bones: []
       spriteID: 9af3f96343909467e8dca46ea4c1beba
@@ -3397,13 +3405,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Objects_156
+      name: hand2-2
       rect:
         serializedVersion: 2
         x: 274
         y: 178
-        width: 45
-        height: 57
+        width: 37
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3712,13 +3720,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Objects_171
+      name: Thorn1-2
       rect:
         serializedVersion: 2
-        x: 16
+        x: 15
         y: 96
-        width: 110
-        height: 80
+        width: 111
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3736,10 +3744,10 @@ TextureImporter:
       name: Objects_172
       rect:
         serializedVersion: 2
-        x: 146
+        x: 145
         y: 100
-        width: 94
-        height: 53
+        width: 97
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4262,9 +4270,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 280
-        y: 50
-        width: 16
-        height: 28
+        y: 67
+        width: 17
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4282,10 +4290,10 @@ TextureImporter:
       name: Objects_198
       rect:
         serializedVersion: 2
-        x: 310
-        y: 53
-        width: 21
-        height: 23
+        x: 319
+        y: 68
+        width: 13
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4303,10 +4311,10 @@ TextureImporter:
       name: Objects_199
       rect:
         serializedVersion: 2
-        x: 340
-        y: 53
-        width: 24
-        height: 23
+        x: 352
+        y: 67
+        width: 12
+        height: 9
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4325,9 +4333,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 375
-        y: 52
+        y: 68
         width: 17
-        height: 24
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4346,9 +4354,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 416
-        y: 56
+        y: 68
         width: 16
-        height: 18
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4367,9 +4375,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 449
-        y: 56
-        width: 15
-        height: 18
+        y: 68
+        width: 12
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4531,22 +4539,22 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Objects_210
+      name: HeadStone1-2
       rect:
         serializedVersion: 2
-        x: 710
-        y: 53
-        width: 21
-        height: 23
+        x: 718
+        y: 63
+        width: 13
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -1.5, y: -0.5}
-        - {x: 1.5, y: 11.5}
-        - {x: 10.5, y: 11.5}
-        - {x: 9.5, y: -1.5}
+      - - {x: -6.5, y: -1.5}
+        - {x: -6.5, y: 1.5}
+        - {x: 6.5, y: 1.5}
+        - {x: 6.5, y: -1.5}
       tessellationDetail: 0
       bones: []
       spriteID: 9e419db6d4f0d4db59b167f77bb3cc2c
@@ -4959,9 +4967,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 422
-        y: 23
-        width: 18
-        height: 20
+        y: 35
+        width: 12
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4980,9 +4988,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 456
-        y: 21
+        y: 34
         width: 18
-        height: 24
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5170,6 +5178,405 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Hand1-1
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 205
+        width: 65
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4611803ae6684134b405e0391d26ccd
+      internalID: 1762726856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hand2-1
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 198
+        width: 47
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fff98e53935a249a0ae8c6ccea748993
+      internalID: -75215532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thorn1-1
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 130
+        width: 113
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ca235d19761349af80bfb4d3f67502b
+      internalID: -861858469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Objects_243
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 62
+        width: 17
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a2a054257fc14ead834f7e659c7d026
+      internalID: 1323618656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Objects_244
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 64
+        width: 13
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 845765e46e55040348dcc25b646e5a36
+      internalID: 864789132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Objects_245
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 64
+        width: 15
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6653248444f0744e6b72154ffc5412c3
+      internalID: 162556427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Objects_246
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 65
+        width: 15
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 944b43d4781e84abbb97f0ca15aa55d0
+      internalID: 321434924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Objects_247
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 56
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1da4b073faeec44edb9c300017945dd7
+      internalID: 247260602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Objects_248
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 56
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0d254a04e3f34246b4540aeafe135f7
+      internalID: 1561145513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Objects_249
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 31
+        width: 18
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f9881b3865224960873f585685df320
+      internalID: -1379941795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Objects_250
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 32
+        width: 19
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed0ac85cecdd844fabb2f480ac86ee54
+      internalID: -972791840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Objects_251
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 49
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f0cd24c7aa1b4ffc970f52103d259a8
+      internalID: -671972909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Objects_252
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 53
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed80e82566c014833b6684ba0834b49c
+      internalID: -172371977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Objects_253
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 53
+        width: 25
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a85bb7a898ee54cf8a46650d75b74b62
+      internalID: -1974722772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Objects_254
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 51
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0a552ef452c74663b4264f07fbc4dde
+      internalID: 1838742440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Objects_255
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 23
+        width: 19
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fe8882cfe0724ed1a66ddceca70aefa
+      internalID: -1526463494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Objects_256
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 21
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7e05f7494160432eb970e9581ed3987
+      internalID: 1591831256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeadStone1-1
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 71
+        width: 13
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a12107b61bd8343eb991553baf3508f6
+      internalID: 26116118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeadStone1-3
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 53
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a05f481f68223488c955828bfbe07e56
+      internalID: -1891099849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -5181,6 +5588,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Hand1-1: 1762726856
+      Hand1-2: 758517389
+      HeadStone1-1: 26116118
+      HeadStone1-2: 971602942
+      HeadStone1-3: -1891099849
       Objects_0: 1841645518
       Objects_1: -1017043844
       Objects_10: -1167097029
@@ -5244,8 +5656,6 @@ TextureImporter:
       Objects_152: 1942730290
       Objects_153: 886701687
       Objects_154: -764326235
-      Objects_155: 758517389
-      Objects_156: 786091527
       Objects_157: -1497187272
       Objects_158: -1000385937
       Objects_159: -1725561973
@@ -5262,7 +5672,6 @@ TextureImporter:
       Objects_169: -876812947
       Objects_17: -1922167511
       Objects_170: -1545679076
-      Objects_171: -2026935337
       Objects_172: -318976807
       Objects_173: 519691791
       Objects_174: 799980168
@@ -5306,7 +5715,6 @@ TextureImporter:
       Objects_208: -347090368
       Objects_209: -863601524
       Objects_21: -1839802919
-      Objects_210: 971602942
       Objects_211: 1468856353
       Objects_212: 2103167447
       Objects_213: -1387096246
@@ -5339,7 +5747,21 @@ TextureImporter:
       Objects_238: -451935233
       Objects_239: 1511125050
       Objects_24: 2028462797
+      Objects_243: 1323618656
+      Objects_244: 864789132
+      Objects_245: 162556427
+      Objects_246: 321434924
+      Objects_247: 247260602
+      Objects_248: 1561145513
+      Objects_249: -1379941795
       Objects_25: 481736019
+      Objects_250: -972791840
+      Objects_251: -671972909
+      Objects_252: -172371977
+      Objects_253: -1974722772
+      Objects_254: 1838742440
+      Objects_255: -1526463494
+      Objects_256: 1591831256
       Objects_26: 2051155462
       Objects_27: 55787711
       Objects_28: -428755981
@@ -5421,6 +5843,10 @@ TextureImporter:
       Objects_97: -1438455985
       Objects_98: 356624477
       Objects_99: 2103480549
+      Thorn1-1: -861858469
+      Thorn1-2: -2026935337
+      hand2-1: -75215532
+      hand2-2: 786091527
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
