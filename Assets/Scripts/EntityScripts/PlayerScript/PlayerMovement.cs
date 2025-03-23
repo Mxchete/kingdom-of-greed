@@ -1,13 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
+using Unity.VisualScripting;
 using UnityEngine;
-using Vector2 = UnityEngine.Vector2;
-using Vector3 = UnityEngine.Vector3;
-using Quaternion = UnityEngine.Quaternion;
-using UnityEngine.TextCore;
-using Unity.Mathematics;
-using System.Buffers.Text;
+
 public class PlayerMovement : Entity
 {
     private Vector2 movement;
@@ -18,50 +13,45 @@ public class PlayerMovement : Entity
     public Transform Aim;
     bool isWalking = false;
 
+    public GameObject currentWeapon; // Reference to the current weapon
+
     protected override void Awake()
     {
         base.Awake();
         animator = GetComponent<Animator>();
-
-
-
     }
 
-    // Update is called once per frame - used for inputs and timers
     private void Update()
     {
         // Process Input
         ProcessInputs();
+
         // Animate
         Animate();
+
         // Flip
         if (movement.x < 0 && !facingLeft || movement.x > 0 && facingLeft)
         {
             Flip();
         }
-
     }
 
-    // Called once per physics frame - used for physics(used for our movement)
     private void FixedUpdate()
     {
-        rb.velocity = movement * moveSpeed * Time.fixedDeltaTime;
+        // Apply movement directly to velocity
+        rb.velocity = movement * moveSpeed;
 
         if (isWalking)
         {
-
             Vector3 vector3 = Vector3.left * movement.x + Vector3.down * movement.y;
             Aim.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
         }
-
     }
 
     void ProcessInputs()
     {
-        // Store last move direction when we stop moving
         float InputX = Input.GetAxisRaw("Horizontal");
         float InputY = Input.GetAxisRaw("Vertical");
-
 
         if ((InputX == 0 && InputY == 0) && (movement.x != 0 || movement.y != 0))
         {
@@ -74,10 +64,10 @@ public class PlayerMovement : Entity
         {
             isWalking = true;
         }
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        movement.Normalize();
 
+        movement.x = InputX;
+        movement.y = InputY;
+        movement.Normalize();
     }
 
     void Animate()
@@ -96,6 +86,8 @@ public class PlayerMovement : Entity
         scale.x *= 1;
         transform.localScale = scale;
     }
-
-
+    public void TriggerAttackAnimation()
+    {
+        animator.SetTrigger("AttackTrigger");
+    }
 }

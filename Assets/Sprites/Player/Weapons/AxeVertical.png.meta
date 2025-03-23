@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7a6cd0f63177249bf928f853271c82d6
+guid: b376a2ca3c372433eab465ff9dd5f0a9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,7 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 1
-  spriteBorder: {x: 24, y: 22, z: 23, w: 23}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -110,22 +110,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GoblinSwordSheet_0
+      name: AxeVertical_0
       rect:
         serializedVersion: 2
-        x: 24
+        x: 27
         y: 22
-        width: 17
-        height: 19
+        width: 12
+        height: 24
       alignment: 9
-      pivot: {x: 0.058958165, y: 0.056056574}
+      pivot: {x: 0.2559341, y: 0.18060899}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cd9288b942834b27a239ee3a29038e9
-      internalID: -1036301464
+      spriteID: e25eba32edaac47c39affd94ecfb7858
+      internalID: 885367665
       vertices: []
       indices: 
       edges: []
@@ -134,14 +134,14 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GoblinSwordSheet_0: -1036301464
+      AxeVertical_0: 885367665
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

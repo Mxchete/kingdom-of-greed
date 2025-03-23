@@ -8,7 +8,7 @@ public class Attack : MonoBehaviour
     public GameObject Melee;
     bool isAttacking = false;
     float atkDuration = 0.1f;
-    float atkTimer = 0f;
+    float atkTimer = 0.25f;
 
     public Transform Aim;
     public GameObject bullet;
@@ -16,12 +16,15 @@ public class Attack : MonoBehaviour
     float shootCoolDown = 0.25f;
     float shootTimer = 0.5f;
 
+
+    public Weapon weapon;
+
     // Update is called once per frame
     void Update()
     {
         // Check Melee Timer
         CheckMeleeTimer();
-        
+
         shootTimer += Time.deltaTime;
 
         //If 'e' or left mouse clicker is pressed
@@ -33,19 +36,19 @@ public class Attack : MonoBehaviour
         }
 
         //If 'q' or right mouse clicker is pressed
-        if(Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(1))
         {
             // Attack Range
             OnShoot();
 
 
         }
-        
+
     }
 
     void OnShoot()
     {
-        if(shootTimer > shootCoolDown)
+        if (shootTimer > shootCoolDown)
         {
             shootTimer = 0;
             GameObject intBullet = Instantiate(bullet, Aim.position, Aim.rotation);
@@ -53,22 +56,30 @@ public class Attack : MonoBehaviour
             Destroy(intBullet, 2f);
         }
     }
-
-    void OnAttack(){
-        if(!isAttacking){
-            Melee.SetActive(true);
+    void OnAttack()
+    {
+        if (!isAttacking)
+        {
             isAttacking = true;
 
+            // Trigger attack animation
+            PlayerMovement playerMovement = GetComponent<PlayerMovement>();
+            if (playerMovement != null)
+            {
+                playerMovement.TriggerAttackAnimation();
+            }
         }
     }
 
-    void CheckMeleeTimer(){
-        if(isAttacking){
+    void CheckMeleeTimer()
+    {
+        if (isAttacking)
+        {
             atkTimer += Time.deltaTime;
-            if(atkTimer >= atkDuration){
+            if (atkTimer >= atkDuration)
+            {
                 atkTimer = 0;
                 isAttacking = false;
-                Melee.SetActive(false);
             }
         }
     }
