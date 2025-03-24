@@ -91,6 +91,8 @@ public class Weapon : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
+
+
             if (weaponType == WeaponType.Bullet)
             {
                 Destroy(gameObject); // Destroy bullets on hit

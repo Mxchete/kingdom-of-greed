@@ -68,6 +68,7 @@ public class Attack : MonoBehaviour
             {
                 playerMovement.TriggerAttackAnimation();
             }
+
         }
     }
 
@@ -83,4 +84,5 @@ public class Attack : MonoBehaviour
             }
         }
     }
+
 }
