@@ -371,11 +371,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   health: 0
-  maxHealth: 10
+  maxHealth: 20
   detectionRange: 15
+  fleeHealthThreshold: 5
+  avoidanceDistance: 3
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  stuckTimeThreshold: 2
+  randomMovementForce: 1
+  stuckDistanceThreshold: 0.1
+  repulsionForce: 5
+  repulsionRadius: 2
+  attackDamage: 5
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
   healthbar: {fileID: 0}
-  attackDamage: 15
-  attackSpeed: 1
 --- !u!212 &4292604648658888563
 SpriteRenderer:
   m_ObjectHideFlags: 0

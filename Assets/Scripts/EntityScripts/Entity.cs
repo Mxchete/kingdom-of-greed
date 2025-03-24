@@ -3,7 +3,10 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
+    [Header("Movement Settings")]
     [SerializeField] protected float moveSpeed;
+
+    [Header("Health Settings")]
     [SerializeField] protected float health;
     [SerializeField] protected float maxHealth;
     protected Rigidbody2D rb;

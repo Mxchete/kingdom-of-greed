@@ -9,10 +9,12 @@ public class PlayerMovement : Entity
     private Vector2 lastMoveDirection;
 
     private bool facingLeft = true;
-
+    
+    [Header("Aim Reference")]
     public Transform Aim;
     bool isWalking = false;
 
+    [Header("Current Weapon Reference")]
     public GameObject currentWeapon; // Reference to the current weapon
 
     protected override void Awake()

@@ -45,6 +45,7 @@ public class playerHealth : MonoBehaviour
                 StartCoroutine(RegenerateHealth());
             }
         }
+
     }
 
     private void OnGUI()

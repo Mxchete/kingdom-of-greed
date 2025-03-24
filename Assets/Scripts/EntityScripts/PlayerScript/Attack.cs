@@ -5,12 +5,17 @@ using UnityEngine.InputSystem;
 
 public class Attack : MonoBehaviour
 {
+    [Header("Melee Object Reference")]
+
     public GameObject Melee;
     bool isAttacking = false;
     float atkDuration = 0.1f;
     float atkTimer = 0.25f;
 
+    [Header("Aim Reference")]
     public Transform Aim;
+
+    [Header("Bullet Settings")]
     public GameObject bullet;
     public float fireForce = 10f;
     float shootCoolDown = 0.25f;
