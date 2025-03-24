@@ -11,7 +11,8 @@ public class DungeonInit : MonoBehaviour
 
     // Get DungeonManager instance
     var dungeonManager = instance.Get<DungeonManager>();
-    dungeonManager.Create(0);
+    int? seed = null;
+    dungeonManager.Create(seed);
   }
 }
 

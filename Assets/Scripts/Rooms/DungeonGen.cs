@@ -12,6 +12,13 @@ public class DungeonGenerator : MonoBehaviour
     requiredSpawn = 2
   }
 
+  public enum spawnConditions
+  {
+    multipleSpawns = 0,
+    spawnOnceNotSpawned = 1,
+    spawnOnceSpawned
+  }
+
   public class Cell
   {
     public bool visited = false;
@@ -29,10 +36,23 @@ public class DungeonGenerator : MonoBehaviour
     public Vector2Int maxPosition = new Vector2Int(Int32.MaxValue, Int32.MaxValue);
 
     public bool obligatory;
+    public spawnConditions conditions;
 
     // Bool-ish function to find which rooms can or SHOULD spawn
     public Spawnable ProbabilityOfSpawning(int x, int y)
     {
+      // If spawnonce building has spawned, do not spawn again
+      if (conditions == spawnConditions.spawnOnceSpawned)
+      {
+        return Spawnable.notSpawnable;
+      }
+
+      // If we are evaluating a room that can only spawn once, set flag
+      if (conditions == spawnConditions.spawnOnceNotSpawned)
+      {
+        conditions = spawnConditions.spawnOnceSpawned;
+      }
+
       bool inXBound = x >= minPosition.x && x <= maxPosition.x;
       bool inYBound = y >= minPosition.x && y <= maxPosition.x;
       if (inXBound && inYBound)

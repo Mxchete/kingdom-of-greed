@@ -6,11 +6,10 @@ public class MainMenu : MonoBehaviour
 {
   public void NewGame()
   {
-    GameManager instance = GameManager.Instance;
+  }
 
-    var sceneManager = instance.Get<KOGSceneManager>();
-
-    // sceneManager.LoadScene("StartRoom");
-    sceneManager.LoadScene("Dungeon");
+  public void QuitGame()
+  {
+    Application.Quit();
   }
 }

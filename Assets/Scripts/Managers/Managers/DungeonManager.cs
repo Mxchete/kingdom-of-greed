@@ -1,40 +1,40 @@
 using System;
+using System.Security.Cryptography;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DungeonManager : ManagerBase
 {
-  private GameObject roomPrefab;
+  private GameObject defaultRoomPrefab;
+  // Default Initialization, should be overwritten by config
   public Vector2Int dungeonSize = new Vector2Int(10, 10);
   public Vector2 roomOffset = new Vector2(10, 10);
 
   public void ReadConfig(DungeonConfig config)
   {
-    roomPrefab = Resources.Load<GameObject>(config.roomAssetPath);
-    Debug.Log(config.roomAssetPath);
+    defaultRoomPrefab = Resources.Load<GameObject>(config.roomAssetPath);
     dungeonSize = config.dungeonSize;
     roomOffset = config.roomOffset;
   }
 
-  public void Create(int seed)
+  public void Create(int? possibleSeed)
   {
-    if (roomPrefab == null)
+    if (defaultRoomPrefab == null)
     {
       Debug.LogError("Room prefab is not assigned!");
       return;
     }
 
-    // Instantiate a new room from the prefab
-    // GameObject newRoom = Instantiate(roomPrefab);
-    // newRoom.name = "Generated Room";
+    int seed = possibleSeed ?? RandomNumberGenerator.GetInt32(Int32.MaxValue);
 
     // Create a rule object for the main RoomType
     DungeonGenerator.Rule newRule = new DungeonGenerator.Rule
     {
-      room = roomPrefab,
+      room = defaultRoomPrefab,
       minPosition = new Vector2Int(0, 0),
       maxPosition = dungeonSize,
-      obligatory = true
+      obligatory = true,
+      conditions = DungeonGenerator.spawnConditions.multipleSpawns
     };
 
     // Create a new DungeonGenerator object

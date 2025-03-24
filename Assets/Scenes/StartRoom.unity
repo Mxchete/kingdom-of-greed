@@ -361574,6 +361574,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SaveGame
       objectReference: {fileID: 0}
+    - target: {fileID: 6890323020414402910, guid: 7da2eb7d8e991d244988ce38862e47fb, type: 3}
+      propertyPath: m_text
+      value: INVENTORY
+      objectReference: {fileID: 0}
     - target: {fileID: 7287745379754238251, guid: 7da2eb7d8e991d244988ce38862e47fb, type: 3}
       propertyPath: m_Spacing.x
       value: 100
