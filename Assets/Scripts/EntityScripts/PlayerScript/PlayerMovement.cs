@@ -90,6 +90,17 @@ public class PlayerMovement : Entity
     }
     public void TriggerAttackAnimation()
     {
+        if(movement.magnitude > 0.1f){
+            lastMoveDirection = movement;
+        }
+
+        animator.SetFloat("InputX", lastMoveDirection.x);
+        animator.SetFloat("InputY", lastMoveDirection.y);
+
+        animator.SetFloat("MoveMagnitude", 0.01f);
+
+        // Trigger the attack animation after saving last movement direction
         animator.SetTrigger("AttackTrigger");
+
     }
 }

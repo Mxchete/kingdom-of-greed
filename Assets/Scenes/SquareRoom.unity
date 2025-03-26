@@ -130,6 +130,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 442204210602870960, guid: 27064b6a1cc0147f280a1a00d9d559f3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 442204210602870960, guid: 27064b6a1cc0147f280a1a00d9d559f3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 442204210602870960, guid: 27064b6a1cc0147f280a1a00d9d559f3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70016605
+      objectReference: {fileID: 0}
+    - target: {fileID: 442204210602870960, guid: 27064b6a1cc0147f280a1a00d9d559f3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 442204210602870960, guid: 27064b6a1cc0147f280a1a00d9d559f3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 442204210602870960, guid: 27064b6a1cc0147f280a1a00d9d559f3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.71398014
+      objectReference: {fileID: 0}
+    - target: {fileID: 442204210602870960, guid: 27064b6a1cc0147f280a1a00d9d559f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 91.119
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715558965498063731, guid: 27064b6a1cc0147f280a1a00d9d559f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2843309642869073961, guid: 27064b6a1cc0147f280a1a00d9d559f3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.4140704
@@ -174,8 +206,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerWithSwordAnim
       objectReference: {fileID: 0}
+    - target: {fileID: 4642754618804570484, guid: 27064b6a1cc0147f280a1a00d9d559f3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509431226830343451, guid: 27064b6a1cc0147f280a1a00d9d559f3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6108649113186504052, guid: 27064b6a1cc0147f280a1a00d9d559f3, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053522360856698547, guid: 27064b6a1cc0147f280a1a00d9d559f3, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
