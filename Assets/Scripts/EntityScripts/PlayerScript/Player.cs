@@ -3,7 +3,7 @@ using UnityEngine;
 public class Player : Entity
 {
     public Weapon currentWeapon; // Reference to the equipped weapon
-    public PlayerMovement playerMovement; // Reference to PlayerMovement for animations
+    public PlayerMovement playerMovement; // Links to PlayerMovement for animations
 
     protected override void Awake()
     {
@@ -18,13 +18,11 @@ public class Player : Entity
         if (currentWeapon != null)
         {
             playerMovement.TriggerAttackAnimation(); // Trigger attack animation
-            // Add weapon-specific attack logic here if needed
         }
     }
 
     protected override void Die()
     {
-        Debug.Log("Player has died!");
         base.Die();
     }
 }

@@ -16,7 +16,7 @@ public class Attack : MonoBehaviour
     public Transform Aim;
 
     [Header("Bullet Settings")]
-    public GameObject bullet;
+    public GameObject bullet; // Prefabs for range attacks
     public float fireForce = 10f;
     float shootCoolDown = 0.25f;
     float shootTimer = 0.5f;
@@ -32,6 +32,7 @@ public class Attack : MonoBehaviour
 
         shootTimer += Time.deltaTime;
 
+        // If statements for attack keys
         //If 'e' or left mouse clicker is pressed
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {

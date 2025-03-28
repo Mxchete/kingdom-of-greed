@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class playerHealth : MonoBehaviour
 {
 
+    [Header("Player's Health Manager")]
     private float health = 0f;
 
     [SerializeField] private float maxHealth = 100f;
