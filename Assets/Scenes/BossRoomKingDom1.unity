@@ -690,6 +690,7 @@ GameObject:
   - component: {fileID: 137480772}
   - component: {fileID: 137480771}
   - component: {fileID: 137480773}
+  - component: {fileID: 137480774}
   m_Layer: 0
   m_Name: Collision
   m_TagString: Untagged
@@ -32132,6 +32133,42 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!19719996 &137480774
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137480769}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!4 &170922057 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 932031769209782757, guid: c700a8e85fb7f4455bf54c8126497d0b, type: 3}
@@ -32617,11 +32654,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2415113933607305916, guid: 24de7860a097c4e3a9393764d9bd6aa8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -42.9917
+      value: -83.86382
       objectReference: {fileID: 0}
     - target: {fileID: 2415113933607305916, guid: 24de7860a097c4e3a9393764d9bd6aa8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.7645235
+      value: -9.087068
       objectReference: {fileID: 0}
     - target: {fileID: 2415113933607305916, guid: 24de7860a097c4e3a9393764d9bd6aa8, type: 3}
       propertyPath: m_LocalPosition.z

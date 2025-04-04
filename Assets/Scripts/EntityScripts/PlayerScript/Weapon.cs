@@ -5,7 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public float damage = 1;
-    public enum WeaponType { Melee = 0, Sword = 1, Bullet = 2 }
+    public enum WeaponType { Melee = 0, Sword = 1, Axe = 2, HornClaw = 3, Bullet = 4 }
     public WeaponType weaponType;
 
     public GameObject[] weapons; // Array of all available weapons
@@ -21,6 +21,14 @@ public class Weapon : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B)) // Press 'B' to equip weapon at index 1 (Sword)
         {
             EquipWeapon(1);
+        }
+        if (Input.GetKeyDown(KeyCode.N)) // Press 'N' to equip weapon at index 2 (Axe)
+        {
+            EquipWeapon(2);
+        }
+        if (Input.GetKeyDown(KeyCode.C)) // Press 'c' to equip weapon at index 3 (Axe)
+        {
+            EquipWeapon(3);
         }
         // Add more hotkeys as needed
     }
@@ -56,6 +64,12 @@ public class Weapon : MonoBehaviour
                 weaponType = WeaponType.Sword;
                 break;
             case 2:
+                weaponType = WeaponType.Axe;
+                break;
+            case 3:
+                weaponType = WeaponType.HornClaw;
+                break;
+            case 4:
                 weaponType = WeaponType.Bullet;
                 break;
             default:
