@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
     public WeaponType weaponType;
 
     public GameObject[] weapons; // Array of all available weapons
-    private GameObject currentWeapon; // Currently equipped weapon
+    protected GameObject currentWeapon; // Currently equipped weapon
 
     private void Update()
     {

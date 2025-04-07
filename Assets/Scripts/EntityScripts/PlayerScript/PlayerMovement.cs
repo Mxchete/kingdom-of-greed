@@ -19,7 +19,8 @@ public class PlayerMovement : Entity
     [Header("Current Weapon Reference")]
     public GameObject currentWeapon; // Reference to the current weapon
 
-
+    private AudioManager audioManager;
+    private bool wasWalkingLastFrame = false;
     protected override void Awake()
     {
         base.Awake();
@@ -32,6 +33,7 @@ public class PlayerMovement : Entity
 
         // Already Declared in the Parent Class, Now initializing with the Player's animator
         animator = GetComponent<Animator>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Method Unique to PlayerMovement
@@ -65,6 +67,13 @@ public class PlayerMovement : Entity
         {
             Vector3 vector3 = Vector3.left * movement.x + Vector3.down * movement.y;
             Aim.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
+            if(!wasWalkingLastFrame){
+                audioManager?.PlayWalkingLoop();
+
+            }
+        }
+        else{
+            audioManager?.StopWalkingLoop();
         }
     }
 
