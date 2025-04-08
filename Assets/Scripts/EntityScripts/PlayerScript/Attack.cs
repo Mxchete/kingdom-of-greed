@@ -21,8 +21,13 @@ public class Attack : MonoBehaviour
     float shootCoolDown = 0.25f;
     float shootTimer = 0.5f;
 
+    [Header("Other Reference")]
+    public Player player;
+    public PlayerMovement playerMovement;
 
     public Weapon weapon;
+
+    Weapon currentWeapon;
 
     // Update is called once per frame
     void Update()
@@ -69,10 +74,16 @@ public class Attack : MonoBehaviour
             isAttacking = true;
 
             // Trigger attack animation
-            PlayerMovement playerMovement = GetComponent<PlayerMovement>();
-            if (playerMovement != null)
+            // PlayerMovement playerMovement = GetComponent<PlayerMovement>();
+            // Player player = GetComponent<Player>();
+            if (playerMovement != null && player != null)
             {
-                playerMovement.TriggerAttackAnimation();
+                player.Attack();
+
+
+            }
+            else{
+                Debug.LogWarning("Missing Player or PlayerMovement componment on object with attack.cs");
             }
 
         }
