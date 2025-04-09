@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
@@ -14,7 +14,7 @@ public class EntBoss : Entity
     public float startSpeed = 10f;
     public bool isAlive = true;
 
-    public void Awake()
+    /*public void Awake()
     {
         base.Awake();
         rb = transform.GetComponent<Rigidbody2D>();
@@ -24,4 +24,4 @@ public class EntBoss : Entity
     void Update(){
     }
 
-}
+}*/
