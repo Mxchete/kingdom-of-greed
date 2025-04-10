@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Item
   - Audio
+  - Boss
+  - Enemy
   layers:
   - Default
   - TransparentFX

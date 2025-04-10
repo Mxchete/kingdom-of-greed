@@ -1,213 +1,195 @@
 using System.Collections;
+using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EntBoss : Entity
 {
-    [Header("Movement Settings")]
-    [SerializeField] private float chaseDistance = 8f;
+
+    [Header("Ent Boss's Health Manager")]
+    [SerializeField] private Slider HealthSlider;
+
+    private float timeSinceLastDamage = 0f;
+    [Header("Detection Settings")]
+    [SerializeField] private float detectionRange = 20f;
+    [SerializeField] private float attackRange = 15f;
+    [SerializeField] private float stoppingDistance = 10f;
 
     [Header("Attack Settings")]
     [SerializeField] private float stompDamage = 15f;
     [SerializeField] private float stompRadius = 4f;
-    [SerializeField] private float vineDamage = 10f;
+    [SerializeField] private float timeBetweenAttacks = 1f;
+    [SerializeField] private float knockbackForce = 5f;
     [SerializeField] private LayerMask playerLayer;
-    [SerializeField] private float timeBetweenAttacks = 2f;
 
-    [Header("Vine Settings")]
-    [SerializeField] private int vineCount = 6;
-    [SerializeField] private float spawnRadius = 2f;
-    [SerializeField] private float vineActiveDuration = 1f;
+    [Header("Visual Effects")]
+    [SerializeField] private ParticleSystem stompParticles;
 
-    [Header("References")]
-    [SerializeField] private GameObject minionPrefab;
-    [SerializeField] private GameObject vinePrefab;
-    [SerializeField] private ParticleSystem stompDustParticles;
-    [SerializeField] private Transform[] summonPoints;
-    [SerializeField] private Transform[] vinePoints;
-
-    private bool faceRight = true;
-    private bool isAttacking = false;
     private Transform player;
-    private Coroutine behaviorRoutine;
+    private float attackCooldown;
+    private bool isAttacking = false;
+    private float recoveryTime = 0.5f; // Added recovery time
 
     protected override void Awake()
     {
         base.Awake();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        HealthSlider.maxValue = maxHealth;
+        HealthSlider.value = health;
+
     }
 
-    private void Start()
+    public void UpdateHealth(float mod)
     {
-        behaviorRoutine = StartCoroutine(BossBehavior());
+        health += mod;
+
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+        else if (health <= 0)
+        {
+            health = 0f;
+            HealthSlider.value = 0f;
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnGUI()
+    {
+        float t = Time.deltaTime / 0.5f;
+        HealthSlider.value = Mathf.Lerp(HealthSlider.value, health, t);
     }
 
     private void Update()
     {
-        if (!isAttacking)
+        if (player == null)
         {
-            FacePlayer();
-            MoveTowardsPlayer();
+            Debug.LogError("Player reference is null!");
+            return;
+        }
+
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        // Debug each condition separately
+        // Debug.Log($"Distance: {distanceToPlayer} <= {attackRange}? {distanceToPlayer <= attackRange}");
+        Debug.Log($"Cooldown: {attackCooldown} <= 0? {attackCooldown <= 0}");
+        Debug.Log($"Not Attacking? {!isAttacking}");
+
+        if (distanceToPlayer <= attackRange && attackCooldown <= 0 && !isAttacking)
+        {
+            Debug.Log("ALL CONDITIONS MET - STARTING ATTACK");
+            StartCoroutine(StompAttack());
+            attackCooldown = timeBetweenAttacks;
         }
     }
 
-    #region Movement
     private void FacePlayer()
     {
-        bool playerIsRight = player.position.x > transform.position.x;
-        if (playerIsRight != faceRight) Flip();
-    }
-
-    private void Flip()
-    {
-        faceRight = !faceRight;
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
+        if ((player.position.x > transform.position.x && transform.localScale.x < 0) ||
+            (player.position.x < transform.position.x && transform.localScale.x > 0))
+        {
+            transform.localScale = new Vector3(-transform.localScale.x,
+                                            transform.localScale.y,
+                                            transform.localScale.z);
+        }
     }
 
     private void MoveTowardsPlayer()
     {
-        if (Vector2.Distance(transform.position, player.position) > chaseDistance)
+        Vector2 direction = (player.position - transform.position).normalized;
+        rb.velocity = new Vector2(direction.x * moveSpeed, rb.velocity.y);
+    }
+
+    private IEnumerator StompAttack()
+    {
+        Debug.Log("=== STARTING STOMP TEST ===");
+
+
+        // 2. Force the animation to play
+        animator.Play("Stomp", -1, 0f);
+        Debug.Log("Forced animation play attempt");
+        yield return null; // Wait one frame
+
+        // 3. Verify
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Stomp"))
         {
-            Vector2 direction = (player.position - transform.position).normalized;
-            rb.velocity = new Vector2(direction.x * moveSpeed, rb.velocity.y);
+            Debug.Log("SUCCESS: Animation is playing!");
         }
         else
         {
-            rb.velocity = new Vector2(0, rb.velocity.y);
-        }
-    }
-    #endregion
-
-    #region Attacks
-    private IEnumerator BossBehavior()
-    {
-        while (health > 0)
-        {
-            yield return new WaitForSeconds(timeBetweenAttacks);
-
-            if (!isAttacking)
-            {
-                int attackPattern = Random.Range(0, 5);
-
-                switch (attackPattern)
-                {
-                    case 0: yield return LaughTaunt(); break;
-                    case 1: yield return VineStompAttack(); break;
-                    case 2: yield return RegularStompAttack(); break;
-                    case 3: yield return SummonMinions(); break;
-                }
-            }
-        }
-    }
-
-    private IEnumerator LaughTaunt()
-    {
-        isAttacking = true;
-        animator.SetTrigger("Laugh");
-        yield return new WaitForSeconds(2.5f);
-        isAttacking = false;
-    }
-
-    private IEnumerator VineStompAttack()
-    {
-        isAttacking = true;
-        animator.SetTrigger("VineStomp");
-        yield return new WaitForSeconds(0.5f); // Wait for animation to hit impact frame
-        isAttacking = false;
-    }
-
-    private IEnumerator RegularStompAttack()
-    {
-        isAttacking = true;
-        animator.SetTrigger("Stomp");
-        yield return new WaitForSeconds(0.4f); // Wait for impact frame
-        isAttacking = false;
-    }
-
-    private IEnumerator SummonMinions()
-    {
-        isAttacking = true;
-        animator.SetTrigger("Summon");
-        yield return new WaitForSeconds(0.8f); // Wait for summon animation
-
-        foreach (Transform point in summonPoints)
-        {
-            Instantiate(minionPrefab, point.position, Quaternion.identity);
-            yield return new WaitForSeconds(0.3f);
+            Debug.LogError("FAILURE: Animation not playing. Check:");
+            Debug.LogError("- State name spelling");
+            Debug.LogError("- Animation assignment");
         }
 
-        yield return new WaitForSeconds(1f);
-        isAttacking = false;
-    }
-    #endregion
-
-    #region Animation Events
-    public void AE_SpawnStompVines()
-    {
-        float angleStep = 360f / vineCount;
-
-        for (int i = 0; i < vineCount; i++)
-        {
-            float angle = i * angleStep;
-            Vector2 spawnPos = (Vector2)transform.position + new Vector2(
-                Mathf.Sin(angle * Mathf.Deg2Rad) * spawnRadius,
-                Mathf.Cos(angle * Mathf.Deg2Rad) * spawnRadius
-            );
-            SpawnVine(spawnPos);
-        }
-
-        // Apply stomp damage at center
-        ApplyAreaDamage(transform.position, stompRadius, stompDamage);
-
-        // Visual effects
-        if (stompDustParticles != null)
-            Instantiate(stompDustParticles, transform.position, Quaternion.identity);
     }
 
+    // Can be called from animation event for perfect timing
     public void OnStompImpact()
     {
-        ApplyAreaDamage(transform.position, stompRadius, stompDamage);
-    }
-    #endregion
-
-    #region Helpers
-    private void SpawnVine(Vector2 position)
-    {
-        GameObject vine = Instantiate(vinePrefab, position, Quaternion.identity);
-        vine.GetComponent<VineController>().Initialize(vineDamage);
+        ExecuteStompImpact();
     }
 
-    private void ApplyAreaDamage(Vector2 center, float radius, float damage)
+    private void ExecuteStompImpact()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(center, radius, playerLayer);
+        // Visual Feedback
+        if (stompParticles != null)
+        {
+            Instantiate(stompParticles, transform.position, Quaternion.identity);
+        }
+
+        // Damage Application
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, stompRadius, playerLayer);
         foreach (Collider2D hit in hits)
         {
             if (hit.CompareTag("Player"))
             {
-                hit.GetComponent<Player>().TakeDamage(damage);
+                hit.GetComponent<Player>().TakeDamage(stompDamage);
 
-                // Optional knockback
-                Vector2 knockbackDir = (hit.transform.position - transform.position).normalized;
-                hit.GetComponent<Rigidbody2D>().AddForce(knockbackDir * 5f, ForceMode2D.Impulse);
+                // Knockback
+                Vector2 direction = (hit.transform.position - transform.position).normalized;
+                hit.GetComponent<Rigidbody2D>().AddForce(direction * knockbackForce, ForceMode2D.Impulse);
             }
         }
-    }
-    #endregion
-
-    protected override void Die()
-    {
-        StopCoroutine(behaviorRoutine);
-        animator.SetTrigger("Die");
-        GetComponent<Collider2D>().enabled = false;
-        rb.simulated = false;
-        enabled = false;
-        Destroy(gameObject, 2f);
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
+        // Detection range (yellow)
+        Gizmos.color = new Color(1, 1, 0, 0.2f);
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
+
+        // Attack range (red)
+        Gizmos.color = new Color(1, 0, 0, 0.2f);
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+
+        // Stomp radius (solid red)
+        Gizmos.color = new Color(1, 0, 0, 0.5f);
         Gizmos.DrawWireSphere(transform.position, stompRadius);
+    }
+
+    // In EntBoss.cs
+    public override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage); // Calls Entity's TakeDamage
+
+        // Update UI
+        if (HealthSlider != null)
+        {
+            HealthSlider.value = health;
+        }
+
+        Debug.Log($"Boss took {damage} damage. Health: {health}"); // Debug
+    }
+
+    protected override void Die()
+    {
+        // Add any boss-specific death logic here
+        if (HealthSlider != null)
+        {
+            HealthSlider.value = 0f;
+        }
+        base.Die(); // Calls Entity's Die
     }
 }

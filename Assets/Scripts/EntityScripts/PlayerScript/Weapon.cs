@@ -99,17 +99,16 @@ public class Weapon : MonoBehaviour
     }
 
     // Handle damage when the weapon collides with an enemy
-    private void OnTriggerEnter2D(Collider2D collision)
+    // In Weapon.cs (or wherever your attack logic is)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Enemy enemy = collision.GetComponent<Enemy>();
-        if (enemy != null)
+        if (other.CompareTag("Enemy") || other.CompareTag("Boss")) // Make sure boss has "Boss" tag
         {
-            enemy.TakeDamage(damage);
-
-
-            if (weaponType == WeaponType.Bullet)
+            Entity enemy = other.GetComponent<Entity>();
+            if (enemy != null)
             {
-                Destroy(gameObject); // Destroy bullets on hit
+                enemy.TakeDamage(damage);
+                Debug.Log($"Hit {other.name} for {damage} damage");
             }
         }
     }
