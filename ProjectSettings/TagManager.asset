@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Item
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - Water
   - UI
   - menu
-  - 
+  - Death
   - 
   - 
   - 
@@ -59,4 +60,7 @@ TagManager:
     locked: 0
   - name: Menu
     uniqueID: 2650438299
+    locked: 0
+  - name: Death
+    uniqueID: 2831162231
     locked: 0

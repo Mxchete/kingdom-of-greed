@@ -372,7 +372,7 @@ MonoBehaviour:
   detectionRange: 15
   health: 0
   maxHealth: 10
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 617291713087415719}
   attackDamage: 15
   attackSpeed: 1
 --- !u!212 &4292604648658888563

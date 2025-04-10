@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 using UnityEngine.UI;
 
 public class playerHealth : MonoBehaviour
 {
 
-    private float health = 0f;
+    //private float health = 0f;
 
-    [SerializeField] private float maxHealth = 100f;
+    //[SerializeField] private float maxHealth = 100f;
 
     [SerializeField] private Slider HealthSlider;
 
@@ -23,21 +24,22 @@ public class playerHealth : MonoBehaviour
 
     private void Start()
     {
-        health = maxHealth;
-        HealthSlider.maxValue = maxHealth;
-        HealthSlider.value = health;
+        //PlayerStats.Instance.health = maxhealth;
+        HealthSlider.maxValue = PlayerStats.Instance.maxhealth;
+        HealthSlider.value = PlayerStats.Instance.maxhealth;
     }
 
     public void UpdateHealth(float mod){
-        health += mod;
+        PlayerStats.Instance.health += mod;
 
-        if(health > maxHealth){
-            health = maxHealth;
+        if(PlayerStats.Instance.health > PlayerStats.Instance.maxhealth){
+            PlayerStats.Instance.health = PlayerStats.Instance.maxhealth;
         }
-        else if(health <= 0){
-            health = 0f;
+        else if(PlayerStats.Instance.health <= 0){
+            PlayerStats.Instance.health = 0;
             HealthSlider.value = 0f;
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            
         }
         else{
             timeSinceLastDamage = 0f;
@@ -47,22 +49,24 @@ public class playerHealth : MonoBehaviour
         }
     }
 
+   
+
     private void OnGUI()
     {
         float t = Time.deltaTime / 0.5f;
-        HealthSlider.value = Mathf.Lerp(HealthSlider.value, health, t);
+        HealthSlider.value = Mathf.Lerp(HealthSlider.value, PlayerStats.Instance.health, t);
     }
 
     private IEnumerator RegenerateHealth(){
         isRegenerating = true;
         
-        while(health < maxHealth){
+        while(PlayerStats.Instance.health < PlayerStats.Instance.maxhealth){
             timeSinceLastDamage += Time.deltaTime;
 
             if(timeSinceLastDamage >= delayBeforeRegen){
-                health += healthRegenRate * Time.deltaTime;
-                if(health > maxHealth){
-                    health = maxHealth;
+                PlayerStats.Instance.health += healthRegenRate * Time.deltaTime;
+                if(PlayerStats.Instance.health > PlayerStats.Instance.maxhealth){
+                    PlayerStats.Instance.health = PlayerStats.Instance.maxhealth;
                 }
             }
             yield return null;

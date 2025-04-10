@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class InventoryController : MonoBehaviour
 {
-    private ItemDictionary itemDictionary;
+    public static InventoryController Instance;
+    public ItemDictionary itemDictionary;
 
     public GameObject inventoryPanel;
     public GameObject slotPrefab;
@@ -24,6 +25,19 @@ public class InventoryController : MonoBehaviour
         //        slot.currentItem = item;
         //    }
         //}
+    }
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);  // Ensure this object persists across scenes
+        }
+        else
+        {
+            Destroy(gameObject);  // Destroy any other instances of this object
+        }
     }
 
     public bool AddItem(GameObject itemPrefab)

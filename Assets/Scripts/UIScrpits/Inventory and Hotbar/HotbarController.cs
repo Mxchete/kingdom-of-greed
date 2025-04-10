@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class HotbarController : MonoBehaviour
 {
+    public static HotbarController Instance;
     public GameObject hotbarPanel;
     public GameObject slotPrefab;
     public int slotCount = 10;
@@ -15,10 +16,20 @@ public class HotbarController : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);  // Persist this controller across scenes
+        }
+        else
+        {
+            Destroy(gameObject);  // Destroy any duplicate instances
+        }
+
         itemDictionary = FindObjectOfType<ItemDictionary>();
 
         hotbarKeys = new Key[slotCount];
-        for(int i = 0; i < slotCount; i++)
+        for (int i = 0; i < slotCount; i++)
         {
             hotbarKeys[i] = i < 9 ? (Key)((int)Key.Digit1 + i) : Key.Digit0;
         }
