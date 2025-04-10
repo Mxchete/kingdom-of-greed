@@ -30,6 +30,7 @@ public class KOGSceneManager : ManagerBase
   {
     if (_sceneLookup.TryGetValue(sceneName, out int sceneIndex))
     {
+      SceneManager.sceneLoaded += OnSceneLoaded;
       SceneManager.LoadScene(sceneIndex, mode);
     }
     else
@@ -47,6 +48,53 @@ public class KOGSceneManager : ManagerBase
     else
     {
       Debug.LogError($"Scene '{sceneName}' not found or is not loaded.");
+    }
+  }
+
+  private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+  {
+    // Only do this for the newly loaded scene
+    SceneManager.sceneLoaded -= OnSceneLoaded;
+    // Get the main camera
+    Camera cam = null;
+
+    // Search all root GameObjects in the scene
+    foreach (GameObject rootObj in scene.GetRootGameObjects())
+    {
+      // Search in children, including inactive ones
+      Camera[] cameras = rootObj.GetComponentsInChildren<Camera>(true);
+      foreach (Camera potCam in cameras)
+      {
+        if (potCam.CompareTag("MainCamera"))
+        {
+          cam = potCam;
+          break;
+        }
+      }
+
+      if (cam != null)
+      {
+        break;
+      }
+    }
+
+    if (cam != null)
+    {
+      GameObject camObj = cam.gameObject;
+
+      if (!camObj.activeSelf)
+      {
+        camObj.SetActive(true);
+        Debug.Log($"Main Camera '{camObj.name}' was inactive. Now activated.");
+      }
+      else
+      {
+        Debug.Log($"Main Camera '{camObj.name}' is already active.");
+      }
+    }
+    else
+    {
+      Debug.LogWarning("No Camera tagged 'MainCamera' found in the scene!");
     }
   }
 }

@@ -26,7 +26,7 @@ public class SeedWindow : MonoBehaviour
     var sceneManager = instance.Get<KOGSceneManager>();
 
     // sceneManager.LoadScene("StartRoom");
-    // sceneManager.LoadScene("Dungeon");
-    sceneManager.LoadScene("BossRoomKingDom1");
+    sceneManager.LoadScene("Dungeon");
+    // sceneManager.LoadScene("BossRoomKingDom1");
   }
 }
