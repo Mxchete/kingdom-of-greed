@@ -6,6 +6,7 @@ using UnityEngine;
 public class DungeonManager : ManagerBase
 {
   private GameObject defaultRoomPrefab;
+  private GameObject defaultEnemyPrefab;
   // Default Initialization, should be overwritten by config
   public Vector2Int dungeonSize = new Vector2Int(10, 10);
   public Vector2 roomOffset = new Vector2(10, 10);
@@ -13,6 +14,7 @@ public class DungeonManager : ManagerBase
   public void ReadConfig(DungeonConfig config)
   {
     defaultRoomPrefab = Resources.Load<GameObject>(config.roomAssetPath);
+    defaultEnemyPrefab = Resources.Load<GameObject>(config.entityPath);
     dungeonSize = config.dungeonSize;
     roomOffset = config.roomOffset;
   }
@@ -46,6 +48,7 @@ public class DungeonManager : ManagerBase
     generator.size = dungeonSize;
     generator.offset = roomOffset;
     generator.rooms = new DungeonGenerator.Rule[] { newRule };
+    generator.defaultEntity = defaultEnemyPrefab;
 
     // Generate dungeon
     generator.Generate();

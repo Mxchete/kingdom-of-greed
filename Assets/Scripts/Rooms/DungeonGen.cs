@@ -68,8 +68,11 @@ public class DungeonGenerator : MonoBehaviour
   public Vector2Int size;
   public int startPos = 0;
   public Rule[] rooms;
+  public GameObject defaultEntity;
   public Vector2 offset;
   public int seed = 0;
+  // This should be defined in a config file
+  public int minEnemies = 0, maxEnemies = 10;
 
   List<Cell> board;
 
@@ -125,7 +128,7 @@ public class DungeonGenerator : MonoBehaviour
               Quaternion.identity, transform).GetComponent<Rooms>();
           newRoom.UpdateRoom(currentCell.status);
           newRoom.name += " " + i + "-" + j;
-
+          SpawnEnemiesInRoom(pos, newRoom.transform);
         }
       }
     }
@@ -252,4 +255,58 @@ public class DungeonGenerator : MonoBehaviour
 
     return neighbors;
   }
+
+  void SpawnEnemiesInRoom(Vector2 roomPosition, Transform roomTransform)
+  {
+    if (defaultEntity == null)
+    {
+      Debug.LogError("Enemy prefab not found in Resources!");
+      return;
+    }
+
+    int numEnemies = WeightedRandom(minEnemies, maxEnemies + 1);
+
+    for (int i = 0; i < numEnemies; i++)
+    {
+      // This should be taken care of in a config file
+      float offsetX = UnityEngine.Random.Range(-10f, 10f);
+      float offsetY = UnityEngine.Random.Range(-10f, 10f);
+
+      Vector2 spawnPosition = roomPosition + new Vector2(offsetX, offsetY);
+
+      GameObject enemy = Instantiate(defaultEntity, spawnPosition, Quaternion.identity, roomTransform);
+      enemy.name = "Enemy_" + roomTransform.name + "_" + i;
+    }
+  }
+
+  int WeightedRandom(int min, int max)
+  {
+    List<int> possibleNum = new List<int>();
+    List<float> weights = new List<float>();
+
+    float totalWeight = 0f;
+
+    for (int i = min; i <= max; i++)
+    {
+      float weight = 1f / (i + 1);
+      possibleNum.Add(i);
+      weights.Add(weight);
+      totalWeight += weight;
+    }
+
+    float randomValue = UnityEngine.Random.Range(0f, totalWeight);
+    float cumulative = 0f;
+
+    for (int i = 0; i < weights.Count; i++)
+    {
+      cumulative += weights[i];
+      if (randomValue <= cumulative)
+      {
+        return possibleNum[i];
+      }
+    }
+
+    return min;
+  }
 }
+

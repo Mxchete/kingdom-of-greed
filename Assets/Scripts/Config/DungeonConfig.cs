@@ -10,4 +10,5 @@ public class DungeonConfig : BaseConfig
   public Vector2Int dungeonSize;
   public Vector2 roomOffset;
   public string roomAssetPath;
+  public string entityPath;
 }
