@@ -1,12 +1,10 @@
 fileFormatVersion: 2
-guid: ca9333b8bc721f84799f72399bd2ff3f
+guid: 42aa912455a0f5e45a7047ec65f5db84
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - inventoryPanel: {instanceID: 0}
-  - slotPrefab: {instanceID: 0}
-  executionOrder: 400
+  defaultReferences: []
+  executionOrder: 0
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 

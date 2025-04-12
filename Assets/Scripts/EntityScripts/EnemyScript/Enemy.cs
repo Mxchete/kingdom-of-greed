@@ -224,6 +224,7 @@ public class Enemy : Entity
         if(regenCoroutine != null){
             StopCoroutine(regenCoroutine);
             regenCoroutine = null;
+            PlayerStats.Instance.KillEnt();
 
         }
         isRegenerating = false;

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4647432118623784084}
   - component: {fileID: 3519858522287991837}
   - component: {fileID: 7468385500407288327}
-  - component: {fileID: -5472347540773925673}
   - component: {fileID: 1547413401604222435}
   - component: {fileID: -396508440459122141}
+  - component: {fileID: 6759587555543442319}
   m_Layer: 0
   m_Name: item
   m_TagString: Item
@@ -104,20 +104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8b703e6d3b336748b6470a8e6ce7564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-5472347540773925673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3091511643800319772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bebc7b4e7bb2eaf45afc0c53619035e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 1
-  Name: Health Potion
 --- !u!212 &1547413401604222435
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -205,3 +191,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &6759587555543442319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3091511643800319772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf56bd555f026c4aaaeeff2addd7eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
+  Name: Health potion
+  description: Adds 20 health
+  icon: {fileID: 21300000, guid: 0dc1a08fde489cb469b5973c7df66ef8, type: 3}
+  healthAmount: 20
+  cooldown: 50

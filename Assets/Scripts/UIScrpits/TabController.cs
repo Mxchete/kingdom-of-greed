@@ -18,10 +18,10 @@ public class TabController : MonoBehaviour
         for(int i = 0; i< pages.Length; i++)
         {
             pages[i].SetActive(false);
-            tabImages[i].color = Color.grey;
+            tabImages[tabNo].color = new Color(1f, 1f, 1f, tabImages[tabNo].color.a);
 
         }
         pages[tabNo].SetActive(true);
-        tabImages[tabNo].color = Color.white;
+        tabImages[tabNo].color = new Color(1f, 1f, 1f, tabImages[tabNo].color.a);
     }
 }

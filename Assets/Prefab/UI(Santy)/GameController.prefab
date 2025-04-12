@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8723044643738639410}
   - component: {fileID: 7011922131059955600}
   - component: {fileID: 924624140873775781}
+  - component: {fileID: 8479302594656251381}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -63,6 +64,29 @@ MonoBehaviour:
   slotCount: 18
   itemPrefabs:
   - {fileID: 3091511643800319772, guid: 907e765b462f9a447b903f96c26c3b68, type: 3}
+--- !u!114 &8479302594656251381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4124100232476569104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42aa912455a0f5e45a7047ec65f5db84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxhealth: 100
+  gold: 0
+  experience: 0
+  favorability: 0
+  strength: 2
+  agility: 2
+  defense: 2
+  constitution: 2
+  entKillCount: 0
+  yarnVariables: {fileID: 0}
 --- !u!1 &4615306375143827703
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,4 +132,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefabs:
-  - {fileID: -5472347540773925673, guid: 907e765b462f9a447b903f96c26c3b68, type: 3}
+  - {fileID: 6759587555543442319, guid: 907e765b462f9a447b903f96c26c3b68, type: 3}
