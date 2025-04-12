@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 74b4293156fd44acd9cc10ba88b379e5
+guid: 603f6a6cb7f47451eb7d05bc6c9e110a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EntIdleDown_0
+      name: EntLeftIdle_0
       rect:
         serializedVersion: 2
         x: 21
@@ -124,17 +124,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 540256f01361744e8bd31410df44e5a7
-      internalID: 1873467605
+      spriteID: 21564570d9ca5456381b13237b1b050c
+      internalID: -1669873441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EntIdleDown_1
+      name: EntLeftIdle_1
       rect:
         serializedVersion: 2
-        x: 84
+        x: 83
         y: 26
         width: 23
         height: 25
@@ -145,17 +145,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68a515dc340904cfebc4f0aec4284432
-      internalID: -1669119769
+      spriteID: b8f110b869d844b25abe8e540671af5b
+      internalID: -1917451904
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EntIdleDown_2
+      name: EntLeftIdle_2
       rect:
         serializedVersion: 2
-        x: 148
+        x: 145
         y: 26
         width: 24
         height: 25
@@ -166,17 +166,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c71264817c236476e8a8b11c50a4a851
-      internalID: -1282544760
+      spriteID: fc78e3b50d9cb429c9d535e425e86456
+      internalID: -223771523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EntIdleDown_3
+      name: EntLeftIdle_3
       rect:
         serializedVersion: 2
-        x: 212
+        x: 208
         y: 26
         width: 24
         height: 25
@@ -187,17 +187,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1599bad225614d08b41fc2306b267ba
-      internalID: 1660581005
+      spriteID: afe391370664f43d6bca4749721e9f0b
+      internalID: -1299415477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EntIdleDown_4
+      name: EntLeftIdle_4
       rect:
         serializedVersion: 2
-        x: 276
+        x: 271
         y: 26
         width: 24
         height: 25
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2364ffd0829994f04bcf0869770c676e
-      internalID: -751750847
+      spriteID: 9a809ec2861334311a545f01be672f0b
+      internalID: 248521203
       vertices: []
       indices: 
       edges: []
@@ -225,11 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      EntIdleDown_0: 1873467605
-      EntIdleDown_1: -1669119769
-      EntIdleDown_2: -1282544760
-      EntIdleDown_3: 1660581005
-      EntIdleDown_4: -751750847
+      EntLeftIdle_0: -1669873441
+      EntLeftIdle_1: -1917451904
+      EntLeftIdle_2: -223771523
+      EntLeftIdle_3: -1299415477
+      EntLeftIdle_4: 248521203
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

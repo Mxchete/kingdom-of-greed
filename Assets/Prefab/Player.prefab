@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1090743939304772909
 Transform:
   m_ObjectHideFlags: 0
@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 4585996640565557954}
   - component: {fileID: 6572557990106297896}
   m_Layer: 0
-  m_Name: PlayerWithSwordAnim 1 1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -424,7 +424,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26740ea80c5134b0d99b7f7ecc3a29d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
   HealthSlider: {fileID: 5354815998379118834}
   healthRegenRate: 5
   delayBeforeRegen: 2
@@ -440,7 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f15eec2ca9f4b05809d746097ffc27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 4
   health: 0
   maxHealth: 100
   Aim: {fileID: 9079516001477792748}
@@ -461,6 +460,8 @@ MonoBehaviour:
   Aim: {fileID: 9079516001477792748}
   bullet: {fileID: 3207778641386009512, guid: cf9dee2ca822e4a8b997beba4dda589a, type: 3}
   fireForce: 10
+  player: {fileID: 0}
+  playerMovement: {fileID: 0}
   weapon: {fileID: 1317152388609893496}
 --- !u!114 &8479374553906419335
 MonoBehaviour:

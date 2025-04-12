@@ -51,7 +51,8 @@ public class EntBoss : Entity
         {
             health = 0f;
             HealthSlider.value = 0f;
-            Destroy(gameObject);
+            //Will Add the animation of dying once done/given
+            Die();
         }
     }
 

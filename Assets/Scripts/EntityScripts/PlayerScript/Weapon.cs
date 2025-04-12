@@ -14,19 +14,19 @@ public class Weapon : MonoBehaviour
     private void Update()
     {
         // Hotkeys for equipping weapons
-        if (Input.GetKeyDown(KeyCode.V)) // Press 'V' to equip weapon at index 0 (Melee)
+        if (Input.GetKeyDown(KeyCode.Z)) // Press 'V' to equip weapon at index 0 (Melee)
         {
             EquipWeapon(0);
         }
-        if (Input.GetKeyDown(KeyCode.B)) // Press 'B' to equip weapon at index 1 (Sword)
+        if (Input.GetKeyDown(KeyCode.X)) // Press 'B' to equip weapon at index 1 (Sword)
         {
             EquipWeapon(1);
         }
-        if (Input.GetKeyDown(KeyCode.N)) // Press 'N' to equip weapon at index 2 (Axe)
+        if (Input.GetKeyDown(KeyCode.C)) // Press 'N' to equip weapon at index 2 (Axe)
         {
             EquipWeapon(2);
         }
-        if (Input.GetKeyDown(KeyCode.C)) // Press 'c' to equip weapon at index 3 (Axe)
+        if (Input.GetKeyDown(KeyCode.V)) // Press 'c' to equip weapon at index 3 (Axe)
         {
             EquipWeapon(3);
         }

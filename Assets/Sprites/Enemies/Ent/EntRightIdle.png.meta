@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 74b4293156fd44acd9cc10ba88b379e5
+guid: 6783bc70957f74d74965ed67a3f3196b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EntIdleDown_0
+      name: EntRightIdle_0
       rect:
         serializedVersion: 2
         x: 21
@@ -118,20 +118,20 @@ TextureImporter:
         width: 21
         height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 540256f01361744e8bd31410df44e5a7
-      internalID: 1873467605
+      spriteID: c81505ee019f04d418955bb3fa63ca9f
+      internalID: -1809088938
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EntIdleDown_1
+      name: EntRightIdle_1
       rect:
         serializedVersion: 2
         x: 84
@@ -139,20 +139,20 @@ TextureImporter:
         width: 23
         height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68a515dc340904cfebc4f0aec4284432
-      internalID: -1669119769
+      spriteID: 7d5d8e9960a274745a2b3463930a2948
+      internalID: -1083220603
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EntIdleDown_2
+      name: EntRightIdle_2
       rect:
         serializedVersion: 2
         x: 148
@@ -160,20 +160,20 @@ TextureImporter:
         width: 24
         height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c71264817c236476e8a8b11c50a4a851
-      internalID: -1282544760
+      spriteID: 2197019b118bc42f885dc7ed3087035d
+      internalID: 1369619400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EntIdleDown_3
+      name: EntRightIdle_3
       rect:
         serializedVersion: 2
         x: 212
@@ -181,20 +181,20 @@ TextureImporter:
         width: 24
         height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1599bad225614d08b41fc2306b267ba
-      internalID: 1660581005
+      spriteID: 5dfe6380c4f88435ca0e72a9c24843aa
+      internalID: 2075203069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EntIdleDown_4
+      name: EntRightIdle_4
       rect:
         serializedVersion: 2
         x: 276
@@ -202,14 +202,14 @@ TextureImporter:
         width: 24
         height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2364ffd0829994f04bcf0869770c676e
-      internalID: -751750847
+      spriteID: 158784b0d4f874d199c30584b78fd0a5
+      internalID: 1209757070
       vertices: []
       indices: 
       edges: []
@@ -225,11 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      EntIdleDown_0: 1873467605
-      EntIdleDown_1: -1669119769
-      EntIdleDown_2: -1282544760
-      EntIdleDown_3: 1660581005
-      EntIdleDown_4: -751750847
+      EntRightIdle_0: -1809088938
+      EntRightIdle_1: -1083220603
+      EntRightIdle_2: 1369619400
+      EntRightIdle_3: 2075203069
+      EntRightIdle_4: 1209757070
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
