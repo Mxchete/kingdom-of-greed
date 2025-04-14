@@ -6,6 +6,7 @@ using UnityEngine;
 public class DungeonManager : ManagerBase
 {
   private GameObject defaultRoomPrefab;
+  private GameObject startRoomPrefab;
   // Default Initialization, should be overwritten by config
   public Vector2Int dungeonSize = new Vector2Int(10, 10);
   public Vector2 roomOffset = new Vector2(10, 10);
@@ -13,6 +14,7 @@ public class DungeonManager : ManagerBase
   public void ReadConfig(DungeonConfig config)
   {
     defaultRoomPrefab = Resources.Load<GameObject>(config.roomAssetPath);
+    startRoomPrefab = Resources.Load<GameObject>(config.startRoomPath);
     dungeonSize = config.dungeonSize;
     roomOffset = config.roomOffset;
   }
@@ -34,7 +36,19 @@ public class DungeonManager : ManagerBase
       minPosition = new Vector2Int(0, 0),
       maxPosition = dungeonSize,
       obligatory = true,
+      DungeonStart = false,
       conditions = DungeonGenerator.spawnConditions.multipleSpawns
+    };
+
+    // Create a rule object for the start RoomType
+    DungeonGenerator.Rule startRule = new DungeonGenerator.Rule
+    {
+      room = startRoomPrefab,
+      minPosition = new Vector2Int(0, 0),
+      maxPosition = dungeonSize,
+      obligatory = true,
+      DungeonStart = true,
+      conditions = DungeonGenerator.spawnConditions.spawnOnceNotSpawned
     };
 
     // Create a new DungeonGenerator object
@@ -45,7 +59,7 @@ public class DungeonManager : ManagerBase
     generator.seed = seed;
     generator.size = dungeonSize;
     generator.offset = roomOffset;
-    generator.rooms = new DungeonGenerator.Rule[] { newRule };
+    generator.rooms = new DungeonGenerator.Rule[] { startRule, newRule };
 
     // Generate dungeon
     generator.Generate();

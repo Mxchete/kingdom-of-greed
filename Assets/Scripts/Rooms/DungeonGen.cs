@@ -36,10 +36,11 @@ public class DungeonGenerator : MonoBehaviour
     public Vector2Int maxPosition = new Vector2Int(Int32.MaxValue, Int32.MaxValue);
 
     public bool obligatory;
+    public bool DungeonStart;
     public spawnConditions conditions;
 
     // Bool-ish function to find which rooms can or SHOULD spawn
-    public Spawnable ProbabilityOfSpawning(int x, int y)
+    public Spawnable ProbabilityOfSpawning(int x, int y, bool[] status)
     {
       // If spawnonce building has spawned, do not spawn again
       if (conditions == spawnConditions.spawnOnceSpawned)
@@ -51,6 +52,12 @@ public class DungeonGenerator : MonoBehaviour
       if (conditions == spawnConditions.spawnOnceNotSpawned)
       {
         conditions = spawnConditions.spawnOnceSpawned;
+      }
+
+      // Spawn the start room whenever we get a chance
+      if (DungeonStart && !status[(int)Rooms.direction.left])
+      {
+        return Spawnable.requiredSpawn;
       }
 
       bool inXBound = x >= minPosition.x && x <= maxPosition.x;
@@ -93,7 +100,7 @@ public class DungeonGenerator : MonoBehaviour
 
           for (int k = 0; k < rooms.Length; k++)
           {
-            Spawnable p = rooms[k].ProbabilityOfSpawning(i, j);
+            Spawnable p = rooms[k].ProbabilityOfSpawning(i, j, currentCell.status);
 
             if (p == Spawnable.requiredSpawn)
             {
