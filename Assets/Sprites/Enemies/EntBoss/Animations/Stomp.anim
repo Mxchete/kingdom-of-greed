@@ -92,7 +92,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 1.7166667
-    functionName: OnStompImpact
+    functionName: ExecuteStompImpact
     data: 
     objectReferenceParameter: {fileID: 7400000, guid: 0ac9555098fbf4da7ae3198ac652dc91, type: 2}
     floatParameter: 0

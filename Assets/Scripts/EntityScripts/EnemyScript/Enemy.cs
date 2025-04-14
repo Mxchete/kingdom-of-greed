@@ -1,6 +1,10 @@
 using System.Collections;
+using System.Numerics;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class Enemy : Entity
 {
@@ -24,6 +28,10 @@ public class Enemy : Entity
     [Header("Attack Settings")]
     public int attackDamage = 5; // Reduced damage
     public float attackCooldown = 1f; // Time between attacks
+    public float attackRange = 1.5f; // Range at which enemy can attack
+    public float attackWindup = 0.3f; // Time before damage is dealt
+    private bool isAttacking = false;
+
 
     [Header("References")]
     public LayerMask playerLayer; // LayerMask for detecting the player
@@ -80,6 +88,8 @@ public class Enemy : Entity
 
     private void Update()
     {
+        if(isDead) return;
+        
         if (target == null) return;
 
         CheckIfStuck();
@@ -89,19 +99,57 @@ public class Enemy : Entity
         // Flee if health is low
         if (health < fleeHealthThreshold)
         {
+            Debug.Log("Enemy Running Away");
             Flee();
         }
-        // Chase if player is in range
-        else if (distanceToPlayer <= detectionRange)
+        // Chase if player is in range but not in attack range
+        else if (distanceToPlayer <= detectionRange && distanceToPlayer > attackRange)
         {
             ChasePlayer();
+        }
+        // Attack if player is in attack range
+        else if (distanceToPlayer <= attackRange && !isAttacking && Time.time - lastAttackTime >= attackCooldown)
+        {
+            Debug.Log("Player in range, Enemy will start attacking");
+            StartCoroutine(Attack());
         }
         // Stop moving if player is out of range
         else
         {
             StopMovement();
         }
+    }
 
+    private IEnumerator Attack()
+    {
+        isAttacking = true;
+        lastAttackTime = Time.time;
+
+        // Set attacking state in animator
+        animator.SetBool("isAttacking", true);
+
+        //Determine the attack direction
+        Vector2 attackDirection = (target.position - transform.position).normalized;
+
+        // Set animator parameters
+        animator.SetFloat("AttackX", attackDirection.x);
+        animator.SetFloat("AttackY", attackDirection.y);
+
+        // Stop movement during attack
+        StopMovement();
+
+        // Windup time before damage is dealt
+        yield return new WaitForSeconds(attackWindup);
+
+        // Check if player is still in range
+        if (Vector3.Distance(target.position, transform.position) <= attackRange && playerHealthComponent != null)
+        {
+            playerHealthComponent.UpdateHealth(-attackDamage);
+        }
+
+        // End attack animation
+        animator.SetBool("isAttacking", false);
+        isAttacking = false;
     }
 
     private void FixedUpdate()
@@ -116,13 +164,22 @@ public class Enemy : Entity
 
     private void ChasePlayer()
     {
-        Vector3 direction = (target.position - transform.position).normalized;
-        moveDirection = direction;
+        float distanceToPlayer = Vector3.Distance(target.position, transform.position);
 
-        // Update Animator Parameters for Blend tree
-        animator.SetFloat("MoveX", direction.x);
-        animator.SetFloat("MoveY", direction.y);
-        animator.SetBool("isMoving", true);
+        if (distanceToPlayer > attackRange)
+        {
+            Vector3 direction = (target.position - transform.position).normalized;
+            moveDirection = direction;
+
+            // Update Animator Parameters for Blend tree
+            animator.SetFloat("MoveX", direction.x);
+            animator.SetFloat("MoveY", direction.y);
+            animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            StopMovement();
+        }
     }
 
     private void Flee()
@@ -152,13 +209,18 @@ public class Enemy : Entity
             health = Mathf.Min(health, maxHealth);
 
             targetHealth = health;
-            healthbar.UpdateHealthBar(health, maxHealth);
+
+            // Check if healthbar exists and is active before updating
+            if (healthbar != null && healthbar.gameObject.activeInHierarchy)
+            {
+                healthbar.UpdateHealthBar(health, maxHealth);
+            }
 
             yield return null;
         }
 
         isRegenerating = false;
-        regenCoroutine = null; // Clear Reference
+        regenCoroutine = null;
     }
 
     private void StopMovement()
@@ -195,6 +257,8 @@ public class Enemy : Entity
     {
         if (Vector3.Distance(transform.position, lastPosition) < stuckDistanceThreshold)
         {
+
+            Debug.Log("Enemy is stuck, applying unstucking function");
             stuckTimer += Time.deltaTime;
             if (stuckTimer >= stuckTimeThreshold)
             {
@@ -218,39 +282,52 @@ public class Enemy : Entity
     public override void TakeDamage(float damage)
     {
         base.TakeDamage(damage);
-        targetHealth = health; // Update target health for smooth interpolation
+        targetHealth = health;
 
-        healthbar.UpdateHealthBar(health, maxHealth);
-        if(regenCoroutine != null){
+        // Check if healthbar exists and is active before updating
+        if (healthbar != null && healthbar.gameObject.activeInHierarchy)
+        {
+            healthbar.UpdateHealthBar(health, maxHealth);
+        }
+
+        if (regenCoroutine != null)
+        {
             StopCoroutine(regenCoroutine);
             regenCoroutine = null;
             PlayerStats.Instance.KillEnt();
-
         }
         isRegenerating = false;
     }
 
-    private void OnCollisionStay2D(Collision2D other)
+
+    private void OnDrawGizmosSelected()
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            AttackPlayer();
-        }
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 
-    private void AttackPlayer()
+
+    protected override void Die()
     {
-        if (Time.time - lastAttackTime >= attackCooldown)
+        if (isDead) return;
+
+        // Stop all enemy behavior first
+        StopAllCoroutines();
+        StopMovement();
+
+        // Disable healthbar if it exists
+        if (healthbar != null)
         {
-            if (playerHealthComponent != null)
-            {
-                playerHealthComponent.UpdateHealth(-attackDamage);
-                lastAttackTime = Time.time; // Reset the cooldown timer
-            }
-            else
-            {
-                Debug.LogError("PlayerHealth component is null!");
-            }
+            healthbar.gameObject.SetActive(false);
         }
+
+        // Disable the Enemy script components
+        this.enabled = false;
+
+        // Call base Die() to handle the actual death sequence
+        base.Die();
     }
+
 }
