@@ -37,6 +37,7 @@ public class DungeonGenerator : MonoBehaviour
 
     public bool obligatory;
     public bool DungeonStart;
+    public bool BossRoom;
     public spawnConditions conditions;
 
     // Bool-ish function to find which rooms can or SHOULD spawn
@@ -56,6 +57,11 @@ public class DungeonGenerator : MonoBehaviour
 
       // Spawn the start room whenever we get a chance
       if (DungeonStart && !status[(int)Rooms.direction.left])
+      {
+        return Spawnable.requiredSpawn;
+      }
+
+      if (BossRoom && !status[(int)Rooms.direction.right])
       {
         return Spawnable.requiredSpawn;
       }
