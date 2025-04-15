@@ -6,6 +6,9 @@ using UnityEngine;
 public class DungeonManager : ManagerBase
 {
   private GameObject defaultRoomPrefab;
+  private GameObject startRoomPrefab;
+  private GameObject bossRoomPrefab;
+  private GameObject defaultEnemyPrefab;
   // Default Initialization, should be overwritten by config
   public Vector2Int dungeonSize = new Vector2Int(10, 10);
   public Vector2 roomOffset = new Vector2(10, 10);
@@ -13,6 +16,9 @@ public class DungeonManager : ManagerBase
   public void ReadConfig(DungeonConfig config)
   {
     defaultRoomPrefab = Resources.Load<GameObject>(config.roomAssetPath);
+    startRoomPrefab = Resources.Load<GameObject>(config.startRoomPath);
+    bossRoomPrefab = Resources.Load<GameObject>(config.bossRoomPath);
+    defaultEnemyPrefab = Resources.Load<GameObject>(config.entityPath);
     dungeonSize = config.dungeonSize;
     roomOffset = config.roomOffset;
   }
@@ -34,7 +40,33 @@ public class DungeonManager : ManagerBase
       minPosition = new Vector2Int(0, 0),
       maxPosition = dungeonSize,
       obligatory = true,
+      DungeonStart = false,
+      BossRoom = false,
       conditions = DungeonGenerator.spawnConditions.multipleSpawns
+    };
+
+    // Create a rule object for the start RoomType
+    DungeonGenerator.Rule startRule = new DungeonGenerator.Rule
+    {
+      room = startRoomPrefab,
+      minPosition = new Vector2Int(0, 0),
+      maxPosition = dungeonSize,
+      obligatory = true,
+      DungeonStart = true,
+      BossRoom = false,
+      conditions = DungeonGenerator.spawnConditions.spawnOnceNotSpawned
+    };
+
+    // Create a rule object for the start RoomType
+    DungeonGenerator.Rule bossRule = new DungeonGenerator.Rule
+    {
+      room = bossRoomPrefab,
+      minPosition = new Vector2Int(0, 0),
+      maxPosition = dungeonSize,
+      obligatory = true,
+      DungeonStart = false,
+      BossRoom = true,
+      conditions = DungeonGenerator.spawnConditions.spawnOnceNotSpawned
     };
 
     // Create a new DungeonGenerator object
@@ -45,7 +77,8 @@ public class DungeonManager : ManagerBase
     generator.seed = seed;
     generator.size = dungeonSize;
     generator.offset = roomOffset;
-    generator.rooms = new DungeonGenerator.Rule[] { newRule };
+    generator.rooms = new DungeonGenerator.Rule[] { startRule, bossRule, newRule };
+    generator.defaultEntity = defaultEnemyPrefab;
 
     // Generate dungeon
     generator.Generate();
