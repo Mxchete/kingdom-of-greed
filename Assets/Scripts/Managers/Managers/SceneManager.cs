@@ -51,7 +51,7 @@ public class KOGSceneManager : ManagerBase
     }
   }
 
-  private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+  public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
   {
     // Only do this for the newly loaded scene
     SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -96,6 +96,26 @@ public class KOGSceneManager : ManagerBase
     {
       Debug.LogWarning("No Camera tagged 'MainCamera' found in the scene!");
     }
-  }
+
+        //if (File.Exists(saveLocation))
+        //{
+
+        //    SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
+
+        //    player.transform.position = saveData.playerPosition;
+        //    Debug.Log("");
+        //    //FindObjectOfType<CinemachineConfiner>().m_BoundingShape2D = GameObject.Find(saveData.mapBoundary).GetComponent<PolygonCollider2D>();
+        //    inventoryController.SetInventoryItems(saveData.inventorySaveData);
+        //    hotbarController.SetHotbarItems(saveData.hotbarSaveData);
+
+
+        //}
+        //else
+        //{
+
+        //    SaveGame();
+
+        //}
+    }
 }
 

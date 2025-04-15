@@ -15,9 +15,19 @@ public class SaveController : MonoBehaviour
     //Start is called before the first frame update
     void Start()
     {
-        saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
+        if(SceneManager.GetActiveScene().name != "StartMenu")
+        {
+            saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
+            inventoryController = FindObjectOfType<InventoryController>();
+            hotbarController = FindObjectOfType<HotbarController>();
+            //currentScene = SceneManager.GetActiveScene();
+            player = GameObject.FindGameObjectWithTag("Player");
+            LoadGame();
+        }
+        //saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
         //inventoryController = FindObjectOfType<InventoryController>();
         //hotbarController = FindObjectOfType<HotbarController>();
+        ////currentScene = SceneManager.GetActiveScene();
         //player = GameObject.FindGameObjectWithTag("Player");
         //LoadGame();
     }
@@ -29,8 +39,9 @@ public class SaveController : MonoBehaviour
         {
             playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position,
             //mapBoundary = FindObjectOfType<CinemachineConfiner>().m_BoundingShape2D.gameObject.name,
-            inventorySaveData = InventoryController.Instance.GetInventoryItems(),
-            hotbarSaveData = HotbarController.Instance.GetHotbarItems(),
+            inventorySaveData = inventoryController.GetInventoryItems(),
+            hotbarSaveData = hotbarController.GetHotbarItems(),
+            currentScene = SceneManager.GetActiveScene().name,
         };//this is writing a json
 
         File.WriteAllText(saveLocation, JsonUtility.ToJson(saveData));
@@ -38,17 +49,17 @@ public class SaveController : MonoBehaviour
 
     public void LoadGame()
     {
-
+        //KOGSceneManager.LoadScene(currentScene, LoadSceneMode.Single);
         if (File.Exists(saveLocation))
         {
 
             SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
 
-            //player.Instance.transform.position = saveData.playerPosition;
+            player.transform.position = saveData.playerPosition;
             Debug.Log("");
             //FindObjectOfType<CinemachineConfiner>().m_BoundingShape2D = GameObject.Find(saveData.mapBoundary).GetComponent<PolygonCollider2D>();
-            InventoryController.Instance.SetInventoryItems(saveData.inventorySaveData);
-            HotbarController.Instance.SetHotbarItems(saveData.hotbarSaveData);
+            inventoryController.SetInventoryItems(saveData.inventorySaveData);
+            hotbarController.SetHotbarItems(saveData.hotbarSaveData);
 
 
         }
@@ -63,9 +74,9 @@ public class SaveController : MonoBehaviour
     //create intialize function to call 
     public void replay()
     {
-        PlayerStats.Instance.health = PlayerStats.Instance.maxhealth;
-        player.SetActive(true);
-        PlayerStats.Instance.health = PlayerStats.Instance.maxhealth;
+        //PlayerStats.Instance.health = PlayerStats.Instance.maxhealth;
+        //player.SetActive(true);
+        //PlayerStats.Instance.health = PlayerStats.Instance.maxhealth;
         //saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
 
         //player = GameObject.FindGameObjectWithTag("Player");
