@@ -336,6 +336,7 @@ GameObject:
   - component: {fileID: 8243526667508474678}
   - component: {fileID: 4585996640565557954}
   - component: {fileID: 6572557990106297896}
+  - component: {fileID: 9124168094074019931}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -441,7 +442,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   health: 0
-  maxHealth: 100
+  maxHealth: 300
+  deathAnimationDuration: 5
   Aim: {fileID: 9079516001477792748}
   currentWeapon: {fileID: 5322587849932266455}
 --- !u!114 &9168111145923072068
@@ -460,8 +462,8 @@ MonoBehaviour:
   Aim: {fileID: 9079516001477792748}
   bullet: {fileID: 3207778641386009512, guid: cf9dee2ca822e4a8b997beba4dda589a, type: 3}
   fireForce: 10
-  player: {fileID: 0}
-  playerMovement: {fileID: 0}
+  player: {fileID: 9124168094074019931}
+  playerMovement: {fileID: 6089548678493101117}
   weapon: {fileID: 1317152388609893496}
 --- !u!114 &8479374553906419335
 MonoBehaviour:
@@ -580,6 +582,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c323c22fda3494da0463bbcaa3c899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9124168094074019931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6520881034038757120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1a0a5946aae49cda484fe373ff3c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  health: 0
+  maxHealth: 300
+  deathAnimationDuration: 5
+  currentWeapon: {fileID: 6674249091084736543}
+  playerMovement: {fileID: 6089548678493101117}
+  invulnerabilityDuration: 1
+  usePlayerStats: 1
 --- !u!1 &7848854582377262795
 GameObject:
   m_ObjectHideFlags: 0

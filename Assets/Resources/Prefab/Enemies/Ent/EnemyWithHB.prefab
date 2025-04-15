@@ -306,6 +306,7 @@ GameObject:
   - component: {fileID: 4292604648658888563}
   - component: {fileID: 4494862017806316434}
   - component: {fileID: 1562188420134913198}
+  - component: {fileID: 7319393527873291650}
   m_Layer: 0
   m_Name: EnemyWithHB
   m_TagString: Enemy
@@ -370,23 +371,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   health: 0
-  maxHealth: 20
+  maxHealth: 50
   deathAnimationDuration: 1
   detectionRange: 15
-  fleeHealthThreshold: 5
-  avoidanceDistance: 2
+  fleeHealthThreshold: 10
+  avoidanceDistance: 5
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   stuckTimeThreshold: 2
   randomMovementForce: 1
   stuckDistanceThreshold: 0.1
   repulsionForce: 5
   repulsionRadius: 2
   attackDamage: 15
-  attackCooldown: 2
+  attackCooldown: 5
   attackRange: 4
-  attackWindup: 1
+  attackWindup: 0.1
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -513,14 +514,26 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 10.949754, y: -9.335009}
       - {x: 11.752853, y: -8.360401}
-      - {x: 10.681728, y: 3.4287438}
-      - {x: 6.1098075, y: 11.73756}
-      - {x: -3.544598, y: 11.831802}
+      - {x: 9.617958, y: -0.29445148}
+      - {x: 7.279953, y: -0.4958048}
+      - {x: -6.629531, y: -0.29518318}
       - {x: -11.583829, y: -0.49841118}
       - {x: -9.638095, y: -8.157192}
       - {x: -4.6448174, y: -12.615796}
       - {x: 5.9876356, y: -12.584623}
   m_UseDelaunayMesh: 0
+--- !u!114 &7319393527873291650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785856627560088347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0c323c22fda3494da0463bbcaa3c899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7471035414067772772
 GameObject:
   m_ObjectHideFlags: 0

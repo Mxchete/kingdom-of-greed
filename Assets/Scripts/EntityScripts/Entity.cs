@@ -25,13 +25,15 @@ public abstract class Entity : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         health = maxHealth;
+
     }
 
     public virtual void TakeDamage(float damage)
     {
-        if(isDead) return; // Prevent taking damage when already dead
+        if (isDead) return;
+
         health -= damage;
-        StartCoroutine(FlashRed());
+
         if (health <= 0)
         {
             Die();
@@ -65,13 +67,13 @@ public abstract class Entity : MonoBehaviour
         StartCoroutine(DestroyAfterDeath());
     }
 
-    private IEnumerator FlashRed()
+    /*private IEnumerator FlashRed()
     {
         Color originalColor = spriteRenderer.color;
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         spriteRenderer.color = originalColor;
-    }
+    }*/
 
     protected virtual IEnumerator DestroyAfterDeath()
     {
