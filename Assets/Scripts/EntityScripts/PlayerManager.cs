@@ -30,6 +30,9 @@ public class PlayerStats : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            // Initializing health
+            health = maxhealth;
         }
         else
         {

@@ -371,23 +371,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   health: 0
-  maxHealth: 20
+  maxHealth: 50
   deathAnimationDuration: 1
   detectionRange: 15
-  fleeHealthThreshold: 5
-  avoidanceDistance: 2
+  fleeHealthThreshold: 10
+  avoidanceDistance: 5
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   stuckTimeThreshold: 2
   randomMovementForce: 1
   stuckDistanceThreshold: 0.1
   repulsionForce: 5
   repulsionRadius: 2
   attackDamage: 15
-  attackCooldown: 2
+  attackCooldown: 5
   attackRange: 4
-  attackWindup: 1
+  attackWindup: 0.1
   playerLayer:
     serializedVersion: 2
     m_Bits: 0

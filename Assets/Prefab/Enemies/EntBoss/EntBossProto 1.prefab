@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2239484073789915753}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.42, y: 9.62, z: 0}
+  m_LocalPosition: {x: -12.23, y: 11.47, z: 0}
   m_LocalScale: {x: 0.26586965, y: 0.26586965, z: 0.26586965}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: -1518695825
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 45285014, guid: 87de01077f7d14982ad1f5102f42d61c, type: 3}
+  m_Sprite: {fileID: -60674840, guid: 3bf8ad212a84547e2b453760ebd785fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!50 &3523279564663833988
 Rigidbody2D:
   serializedVersion: 4
@@ -144,21 +144,24 @@ MonoBehaviour:
   moveSpeed: 2
   health: 0
   maxHealth: 300
-  deathAnimationDuration: 1
+  deathAnimationDuration: 5
   healthSlider: {fileID: 4734424509690298226}
   detectionRange: 20
   attackRange: 10
   stoppingDistance: 5
   stompDamage: 15
-  stompRadius: 7
-  timeBetweenAttacks: 1
-  knockbackForce: 5
+  stompRadius: 5
+  timeBetweenAttacks: 4
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   stompParticles: {fileID: 0}
   deathEffect: {fileID: 0}
   stompSound: {fileID: 0}
+  vineCount: 12
+  vineRadius: 10
+  vineOffsetAngle: 20
+  vinePrefab: {fileID: 23776982223295222, guid: ae9de502fb76b494fba786b227bde683, type: 3}
 --- !u!61 &7357395826137392035
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -191,10 +194,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.3095455, y: -21.252272}
+  m_Offset: {x: -1.3095455, y: 5.2070312}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 57, y: 61}
     newSize: {x: 57, y: 61}
     adaptiveTilingThreshold: 0.5
@@ -202,7 +205,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 46.080555, y: 19.121914}
+  m_Size: {x: 46.080555, y: 12.097319}
   m_EdgeRadius: 0
 --- !u!95 &1933904396670267313
 Animator:

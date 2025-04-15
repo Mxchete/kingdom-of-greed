@@ -19,9 +19,6 @@ public class playerHealth : MonoBehaviour
     private bool isRegenerating = false;
     private float timeSinceLastDamage = 0f;
 
-
-
-
     private void Start()
     {
         //PlayerStats.Instance.health = maxhealth;

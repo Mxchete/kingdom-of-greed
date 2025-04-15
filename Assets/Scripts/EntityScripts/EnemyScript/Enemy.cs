@@ -43,7 +43,6 @@ public class Enemy : Entity
     [SerializeField] private Slider HealthSlider;
 
     private bool isRegenerating = false;
-    private float timeSinceLastDamage = 0f;
     private float targetHealth; // Target health value for smooth interpolation
 
     private Transform target;

@@ -12,12 +12,40 @@ public class Player : Entity
     [SerializeField] private float invulnerabilityDuration = 1f;
     private bool isInvulnerable = false;
 
+    [Header("Health Sync")]
+    [SerializeField] private bool usePlayerStats = true;
+    private bool statsInitialized = false;
+
     protected override void Awake()
     {
+        // Initialize Entity components first
         base.Awake();
+
+        // Get other components
         currentWeapon = GetComponentInChildren<Weapon>();
         playerMovement = GetComponent<PlayerMovement>();
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio")?.GetComponent<AudioManager>();
+
+        // Initialize health system
+        InitializeHealthSystem();
+    }
+
+    private void InitializeHealthSystem()
+    {
+        if (!usePlayerStats) return;
+
+        if (PlayerStats.Instance == null)
+        {
+            Debug.LogWarning("PlayerStats not found! Using local health values.");
+            statsInitialized = false;
+        }
+        else
+        {
+            maxHealth = PlayerStats.Instance.maxhealth;
+            health = PlayerStats.Instance.health;
+            statsInitialized = true;
+            Debug.Log("PlayerStats health initialized: " + health);
+        }
     }
 
     public void Attack()
@@ -25,18 +53,37 @@ public class Player : Entity
         if (currentWeapon != null && !isDead)
         {
             playerMovement.TriggerAttackAnimation();
-            audioManager.PlayWeaponSFX(currentWeapon.weaponType);
-            // currentWeapon.Attack();
+            audioManager?.PlayWeaponSFX(currentWeapon.weaponType);
         }
     }
 
     public override void TakeDamage(float damage)
     {
+        TakeDamage(damage, Vector2.zero);
+    }
+
+    public void TakeDamage(float damage, Vector2 direction)
+    {
         if (isDead || isInvulnerable) return;
 
-        base.TakeDamage(damage);
-        StartCoroutine(InvulnerabilityPeriod());
-        // audioManager.PlaySFX(audioManager.playerHurt);
+        // Handle damage
+        if (statsInitialized)
+        {
+            PlayerStats.Instance.health -= damage;
+            health = PlayerStats.Instance.health;
+        }
+        else
+        {
+            health -= damage;
+        }
+
+        // Visual feedback
+        animator.SetFloat("HitDirectionX", direction.x);
+        animator.SetFloat("HitDirectionY", direction.y);
+        animator.SetTrigger("Hit");
+
+        if (health <= 0) Die();
+        else StartCoroutine(InvulnerabilityPeriod());
     }
 
     private IEnumerator InvulnerabilityPeriod()
@@ -58,7 +105,6 @@ public class Player : Entity
 
     protected override void Die()
     {
-        // audioManager.PlaySFX(audioManager.playerDeath);
         playerMovement.enabled = false;
         base.Die();
     }
