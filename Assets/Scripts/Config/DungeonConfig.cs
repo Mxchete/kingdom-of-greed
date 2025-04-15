@@ -12,4 +12,5 @@ public class DungeonConfig : BaseConfig
   public string roomAssetPath;
   public string startRoomPath;
   public string bossRoomPath;
+  public string entityPath;
 }

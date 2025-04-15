@@ -4,6 +4,7 @@
   "roomAssetPath": "Prefab/SquareRoom/Room",
   "startRoomPath": "Prefab/SquareRoom/RoomDungeonStart",
   "bossRoomPath": "Prefab/SquareRoom/bossRoomEntrance",
-  "extraRoomsAssetPaths": ["Prefab/", "Prefab/"]
+  "extraRoomsAssetPaths": ["Prefab/", "Prefab/"],
+  "entityPath": "Prefab/Enemies/Ent/EnemyWithHB"
 }
 
