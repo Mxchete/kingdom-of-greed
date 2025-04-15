@@ -85,7 +85,8 @@ public class SaveController : MonoBehaviour
 
     public void loadMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SaveGame();
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 }
 
