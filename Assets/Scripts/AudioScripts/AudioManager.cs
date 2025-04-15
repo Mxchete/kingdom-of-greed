@@ -18,10 +18,24 @@ public class AudioManager : MonoBehaviour
     public AudioClip axeBasic;
     public AudioClip hornClawBasic;
 
+    public static AudioManager Instance;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
     private void Start()
     {
         musicSource.clip = background;
         musicSource.Play();
+
     }
 
     public void PlaySFX(AudioClip clip){
