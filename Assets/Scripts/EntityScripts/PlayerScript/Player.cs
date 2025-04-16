@@ -77,10 +77,13 @@ public class Player : Entity
             health -= damage;
         }
 
+        // 🔊 Play hit sound effect
+        audioManager?.PlaySFX(audioManager.playerIsHitSFX);
+
         // Visual feedback
         animator.SetFloat("HitDirectionX", direction.x);
         animator.SetFloat("HitDirectionY", direction.y);
-        animator.SetTrigger("Hit");
+        animator.Play("Hit", 0, 0f);
 
         if (health <= 0) Die();
         else StartCoroutine(InvulnerabilityPeriod());

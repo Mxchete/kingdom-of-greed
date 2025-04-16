@@ -22,6 +22,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip axeBasic;
     public AudioClip hornClawBasic;
 
+    [Header("Other SFX")]
+    public AudioClip playerIsHitSFX;
+
     public static AudioManager Instance;
 
     private void Awake()
@@ -41,6 +44,7 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
 
     }
+
 
     /*public void ChangeMusic(AudioClip newMusic)
     {

@@ -140,10 +140,15 @@ public class Enemy : Entity
         // Windup time before damage is dealt
         yield return new WaitForSeconds(attackWindup);
 
-        // Check if player is still in range
-        if (Vector3.Distance(target.position, transform.position) <= attackRange && playerHealthComponent != null)
+
+        if (Vector3.Distance(target.position, transform.position) <= attackRange)
         {
-            playerHealthComponent.UpdateHealth(-attackDamage);
+            if (target.TryGetComponent<Player>(out var playerComponent))
+            {
+                Vector2 direction = (target.position - transform.position).normalized;
+                playerComponent.TakeDamage(attackDamage, direction);
+                playerHealthComponent.UpdateHealth(-attackDamage);
+            }
         }
 
         // End attack animation

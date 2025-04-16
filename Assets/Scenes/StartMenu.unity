@@ -3502,6 +3502,14 @@ PrefabInstance:
       propertyPath: StartRoomMusic
       value: 
       objectReference: {fileID: 8300000, guid: 39541cd4e2f9e7c428e4b517aa1fa1e6, type: 3}
+    - target: {fileID: 6354702537256638977, guid: a7c28eecf946a494a919b1d0a2f9947b, type: 3}
+      propertyPath: playerIsHitSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 8b23b175a78d6b5458322e3a6c9905d0, type: 3}
+    - target: {fileID: 7049273881067968668, guid: a7c28eecf946a494a919b1d0a2f9947b, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7515904228462434471, guid: a7c28eecf946a494a919b1d0a2f9947b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 940.554
@@ -3541,6 +3549,10 @@ PrefabInstance:
     - target: {fileID: 7515904228462434471, guid: a7c28eecf946a494a919b1d0a2f9947b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8688307873932270265, guid: a7c28eecf946a494a919b1d0a2f9947b, type: 3}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
