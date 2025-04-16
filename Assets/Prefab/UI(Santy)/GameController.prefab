@@ -76,8 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42aa912455a0f5e45a7047ec65f5db84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 300
-  maxhealth: 300
+  health: 150
+  maxhealth: 150
   gold: 0
   experience: 0
   favorability: 0

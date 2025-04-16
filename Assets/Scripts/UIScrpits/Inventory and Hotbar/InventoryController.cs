@@ -17,9 +17,9 @@ public class InventoryController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        itemDictionary = FindObjectOfType<ItemDictionary>();
+        //itemDictionary = FindObjectOfType<ItemDictionary>();
 
-        //GameObject itemDictionary = Resources.FindObjectsOfTypeAll<GameObject>().FirstOrDefault(go => go.name == "InventoryPanel" && !go.activeInHierarchy);
+        GameObject itemDictionary = Resources.FindObjectsOfTypeAll<GameObject>().FirstOrDefault(go => go.name == "InventoryPanel" && !go.activeInHierarchy);
 
         //for (int i = 0; i < slotCount; i++)
         //{
@@ -114,12 +114,19 @@ public class InventoryController : MonoBehaviour
             if (data.slotIndex < slotCount)
             {
                 Slot slot = inventoryPanel.transform.GetChild(data.slotIndex).GetComponent<Slot>();
-                GameObject itemPrefab = itemDictionary.GetItemPrefab(data.itemID);
+                if(itemDictionary != null)
+                {
+                 GameObject itemPrefab = itemDictionary.GetItemPrefab(data.itemID);
                 if (itemPrefab != null)
                 {
                     GameObject item = Instantiate(itemPrefab, slot.transform);
                     item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
                     slot.currentItem = item;
+                }
+                }
+                else
+                {
+                    Debug.Log("null item dictorinary");
                 }
             }
         }

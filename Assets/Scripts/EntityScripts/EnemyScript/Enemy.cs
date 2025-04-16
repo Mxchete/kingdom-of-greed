@@ -8,6 +8,7 @@ using Vector3 = UnityEngine.Vector3;
 
 public class Enemy : Entity
 {
+
   [Header("Movement Settings")]
   public float detectionRange = 10f; // Distance within which the enemy will start following the player
   public float fleeHealthThreshold = 5f; // Health below which the enemy will flee
@@ -36,7 +37,7 @@ public class Enemy : Entity
   [Header("References")]
   public LayerMask playerLayer; // LayerMask for detecting the player
   [SerializeField] private FloatingHealthBar healthbar;
-
+    private PlayerStats GameController;
   [Header("Health Settings")]
   [SerializeField] private float healthRegenRate = 5f;
   [SerializeField] private float delayBeforeRegen = 2f;
@@ -58,8 +59,8 @@ public class Enemy : Entity
   {
     base.Awake();
     healthbar = GetComponentInChildren<FloatingHealthBar>();
-
-    if (healthbar == null)
+        GameController = FindAnyObjectByType<PlayerStats>();
+        if (healthbar == null)
     {
       Debug.LogError("FloatingHealthBar component missing!");
     }
@@ -293,7 +294,7 @@ public class Enemy : Entity
     {
       StopCoroutine(regenCoroutine);
       regenCoroutine = null;
-      PlayerStats.Instance.KillEnt();
+      GameController.KillEnt();
     }
     isRegenerating = false;
   }

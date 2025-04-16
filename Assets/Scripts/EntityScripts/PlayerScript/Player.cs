@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    private PlayerStats GameController;
     [Header("Components")]
     public Weapon currentWeapon;
     public PlayerMovement playerMovement;
@@ -29,7 +30,7 @@ public class Player : Entity
         currentWeapon = GetComponentInChildren<Weapon>();
         playerMovement = GetComponent<PlayerMovement>();
         audioManager = GameObject.FindGameObjectWithTag("Audio")?.GetComponent<AudioManager>();
-
+        GameController = FindAnyObjectByType<PlayerStats>();
         // Initialize health system
         InitializeHealthSystem();
     }
@@ -38,15 +39,15 @@ public class Player : Entity
     {
         if (!usePlayerStats) return;
 
-        if (PlayerStats.Instance == null)
+        if (GameController == null)
         {
             Debug.LogWarning("PlayerStats not found! Using local health values.");
             statsInitialized = false;
         }
         else
         {
-            maxHealth = PlayerStats.Instance.maxhealth;
-            health = PlayerStats.Instance.health;
+            maxHealth = GameController.maxhealth;
+            health = GameController.health;
             statsInitialized = true;
             Debug.Log("PlayerStats health initialized: " + health);
         }
@@ -73,8 +74,8 @@ public class Player : Entity
         // Handle damage
         if (statsInitialized)
         {
-            PlayerStats.Instance.health -= damage;
-            health = PlayerStats.Instance.health;
+            health -= damage;
+            health = GameController.health;
         }
         else
         {

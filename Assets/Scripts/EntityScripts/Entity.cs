@@ -11,7 +11,7 @@ public abstract class Entity : MonoBehaviour
     [SerializeField] protected float maxHealth;
 
     [Header("Death Settings")]
-    [SerializeField] protected float deathAnimationDuration = 5f;
+    protected float deathAnimationDuration = 10f;
     protected bool isDead = false;
 
     [Header("References")]
