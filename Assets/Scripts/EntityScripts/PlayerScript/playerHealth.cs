@@ -39,7 +39,6 @@ public class playerHealth : MonoBehaviour
             PlayerStats.Instance.health = 0;
             HealthSlider.value = 0f;
             gameObject.SetActive(false);
-
         }
         else
         {
@@ -49,7 +48,11 @@ public class playerHealth : MonoBehaviour
                 StartCoroutine(RegenerateHealth());
             }
         }
+
+        // Update health slider value here as well
+        HealthSlider.value = PlayerStats.Instance.health;
     }
+
 
 
 

@@ -10,6 +10,8 @@ public class VineDamage : MonoBehaviour
     private Collider2D vineCollider;
     private bool hasDamaged;
 
+    private playerHealth playerHealthComponent;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -36,10 +38,41 @@ public class VineDamage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && vineCollider.enabled && !hasDamaged)
+        Debug.Log("Vine touched: " + other.name);
+
+        if (!vineCollider.enabled || hasDamaged) return;
+
+        if (other.CompareTag("Player"))
         {
-            other.GetComponent<Player>().TakeDamage(damage);
-            hasDamaged = true;
+            Player player = other.GetComponent<Player>();
+            if (player == null)
+            {
+                Debug.LogError("Player script not found on: " + other.name);
+                return;
+            }
+
+            playerHealthComponent = player.GetComponent<playerHealth>();
+            if (playerHealthComponent == null)
+            {
+                Debug.LogError("playerHealth component not found on: " + other.name);
+                return;
+            }
+
+            if (!player.IsInvulnerable())
+            {
+                Debug.Log("Vine hit the player!");
+
+                player.TakeDamage(damage);
+                playerHealthComponent.UpdateHealth(-damage);
+                hasDamaged = true;
+
+                Debug.Log($"Health after vine hit: {PlayerStats.Instance.health}");
+            }
+            else
+            {
+                Debug.Log("Player was invulnerable.");
+            }
         }
+
     }
 }

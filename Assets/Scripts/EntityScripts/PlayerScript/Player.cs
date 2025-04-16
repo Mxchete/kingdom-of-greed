@@ -16,6 +16,10 @@ public class Player : Entity
     [SerializeField] private bool usePlayerStats = true;
     private bool statsInitialized = false;
 
+
+    private playerHealth healthUI;
+
+
     protected override void Awake()
     {
         // Initialize Entity components first
@@ -77,10 +81,13 @@ public class Player : Entity
             health -= damage;
         }
 
+        // 🔊 Play hit sound effect
+        audioManager?.PlaySFX(audioManager.playerIsHitSFX);
+
         // Visual feedback
         animator.SetFloat("HitDirectionX", direction.x);
         animator.SetFloat("HitDirectionY", direction.y);
-        animator.SetTrigger("Hit");
+        animator.Play("Hit", 0, 0f);
 
         if (health <= 0) Die();
         else StartCoroutine(InvulnerabilityPeriod());
@@ -101,6 +108,11 @@ public class Player : Entity
 
         spriteRenderer.enabled = true;
         isInvulnerable = false;
+    }
+
+    public bool IsInvulnerable()
+    {
+        return isInvulnerable;
     }
 
     protected override void Die()
