@@ -36,10 +36,6 @@ public class EntBoss : Entity
     [SerializeField] private float timeBetweenSummons = 20f;
     private float summonCooldown = 0f;
 
-
-
-
-
     private bool hasDetectedPlayer = false;
     private bool isLaughing = false;
 
@@ -53,10 +49,27 @@ public class EntBoss : Entity
     private bool isMoving = false;
     private const float recoveryTime = 3f;
 
+    private playerHealth playerHealthComponent;
+
     protected override void Awake()
     {
         base.Awake();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+
+        if (playerObj != null)
+        {
+            player = playerObj.transform;
+            playerHealthComponent = playerObj.GetComponent<playerHealth>();
+
+            if (playerHealthComponent == null)
+            {
+                Debug.LogWarning("playerHealth component not found on Player!");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Player object not found in scene!");
+        }
         if (healthSlider != null)
         {
             healthSlider.maxValue = maxHealth;
