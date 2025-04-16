@@ -8089,6 +8089,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: BossRoomKingDom1
+  movX: -10
+  movY: 0
 --- !u!58 &5999831944609220346
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -8199,6 +8199,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: StartRoom
+  movX: 10
+  movY: 0
 --- !u!1 &6470376711845439694
 GameObject:
   m_ObjectHideFlags: 0
