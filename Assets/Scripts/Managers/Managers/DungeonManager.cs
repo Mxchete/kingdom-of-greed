@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class DungeonManager : ManagerBase
 {
+  // Actual DungeonGenerator
+  private DungeonGenerator generator;
+
   private GameObject defaultRoomPrefab;
   private GameObject startRoomPrefab;
   private GameObject bossRoomPrefab;
@@ -71,7 +74,8 @@ public class DungeonManager : ManagerBase
 
     // Create a new DungeonGenerator object
     GameObject generatorObj = new GameObject("DungeonGenerator");
-    DungeonGenerator generator = generatorObj.AddComponent<DungeonGenerator>();
+    generator = generatorObj.AddComponent<DungeonGenerator>();
+    // DontDestroyOnLoad(generatorObj);
 
     // Configure the generator
     generator.seed = seed;
@@ -82,6 +86,11 @@ public class DungeonManager : ManagerBase
 
     // Generate dungeon
     generator.Generate();
+  }
+
+  public void Load()
+  {
+    generator.gameObject.SetActive(true);
   }
 }
 

@@ -5,16 +5,29 @@ using Cinemachine;
 
 public class DungeonInit : MonoBehaviour
 {
-  GameObject vCam;
+  static DungeonManager dungeonManager;
+  static bool initDone = false;
+
   private void Start()
   {
+    // DontDestroyOnLoad(this.gameObject);
+
     // vCam = Camera.main.gameObject;
     GameManager instance = GameManager.Instance;
 
-    // Get DungeonManager instance
-    var dungeonManager = instance.Get<DungeonManager>();
-    int? seed = null;
-    dungeonManager.Create(seed);
+    if (!initDone)
+    {
+      // Get DungeonManager instance
+      dungeonManager = instance.Get<DungeonManager>();
+      int? seed = null;
+      dungeonManager.Create(seed);
+      initDone = true;
+      Debug.Log("Created dungeonmanager");
+    }
+    else
+    {
+      dungeonManager.Load();
+    }
   }
 }
 

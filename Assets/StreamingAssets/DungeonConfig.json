@@ -1,5 +1,5 @@
 {
-  "dungeonSize": { "x": 9, "y": 9 },
+  "dungeonSize": { "x": 5, "y": 5 },
   "roomOffset": { "x": 90.0, "y": 90.0 },
   "roomAssetPath": "Prefab/SquareRoom/Room",
   "startRoomPath": "Prefab/SquareRoom/RoomDungeonStart",

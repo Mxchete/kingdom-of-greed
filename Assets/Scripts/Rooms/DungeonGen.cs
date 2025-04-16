@@ -5,6 +5,24 @@ using UnityEngine;
 
 public class DungeonGenerator : MonoBehaviour
 {
+  void Awake()
+  {
+    DontDestroyOnLoad(this.gameObject);
+    gmInstance = GameManager.Instance;
+  }
+
+  void Update()
+  {
+    if (gmInstance.Get<KOGSceneManager>().GetSceneName() == "Dungeon")
+    {
+      this.gameObject.SetActive(true);
+    }
+    else
+    {
+      this.gameObject.SetActive(false);
+    }
+  }
+
   public enum Spawnable
   {
     notSpawnable = 0,
@@ -94,6 +112,7 @@ public class DungeonGenerator : MonoBehaviour
   static private bool weGotEnd = false;
   // This should be defined in a config file
   public int minEnemies = 0, maxEnemies = 10;
+  private GameManager gmInstance;
 
   List<Cell> board;
 

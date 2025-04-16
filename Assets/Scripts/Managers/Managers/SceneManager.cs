@@ -97,25 +97,31 @@ public class KOGSceneManager : ManagerBase
       Debug.LogWarning("No Camera tagged 'MainCamera' found in the scene!");
     }
 
-        //if (File.Exists(saveLocation))
-        //{
+    //if (File.Exists(saveLocation))
+    //{
 
-        //    SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
+    //    SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
 
-        //    player.transform.position = saveData.playerPosition;
-        //    Debug.Log("");
-        //    //FindObjectOfType<CinemachineConfiner>().m_BoundingShape2D = GameObject.Find(saveData.mapBoundary).GetComponent<PolygonCollider2D>();
-        //    inventoryController.SetInventoryItems(saveData.inventorySaveData);
-        //    hotbarController.SetHotbarItems(saveData.hotbarSaveData);
+    //    player.transform.position = saveData.playerPosition;
+    //    Debug.Log("");
+    //    //FindObjectOfType<CinemachineConfiner>().m_BoundingShape2D = GameObject.Find(saveData.mapBoundary).GetComponent<PolygonCollider2D>();
+    //    inventoryController.SetInventoryItems(saveData.inventorySaveData);
+    //    hotbarController.SetHotbarItems(saveData.hotbarSaveData);
 
 
-        //}
-        //else
-        //{
+    //}
+    //else
+    //{
 
-        //    SaveGame();
+    //    SaveGame();
 
-        //}
-    }
+    //}
+  }
+
+  public string GetSceneName()
+  {
+    return SceneManager.GetActiveScene().name;
+  }
+
 }
 
