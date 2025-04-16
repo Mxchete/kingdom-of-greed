@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class VineDamage : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class VineDamage : MonoBehaviour
     private Animator animator;
     private Collider2D vineCollider;
     private bool hasDamaged;
-
+    private PlayerStats PlayerManager;
     private playerHealth playerHealthComponent;
 
     private void Start()
@@ -17,7 +18,7 @@ public class VineDamage : MonoBehaviour
         animator = GetComponent<Animator>();
         vineCollider = GetComponent<Collider2D>();
         vineCollider.enabled = false; // Start inactive
-
+        PlayerManager = FindAnyObjectByType<PlayerStats>();
         // Activate collider mid-animation (adjust 0.5f to match your keyframe)
         Invoke(nameof(ActivateCollider), animator.GetCurrentAnimatorStateInfo(0).length * 0.5f);
 
@@ -66,7 +67,7 @@ public class VineDamage : MonoBehaviour
                 playerHealthComponent.UpdateHealth(-damage);
                 hasDamaged = true;
 
-                Debug.Log($"Health after vine hit: {PlayerStats.Instance.health}");
+                Debug.Log($"Health after vine hit: {PlayerManager.health}");
             }
             else
             {

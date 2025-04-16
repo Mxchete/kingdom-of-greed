@@ -25,19 +25,19 @@ public class PlayerStats : MonoBehaviour
 
     void Awake()
     {
-        // Ensure only one instance exists
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+        //// Ensure only one instance exists
+        //if (Instance == null)
+        //{
+        //    Instance = this;
+        //    DontDestroyOnLoad(gameObject);
 
-            // Initializing health
-            health = maxhealth;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        //    // Initializing health
+        //    health = maxhealth;
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 
     void Start()

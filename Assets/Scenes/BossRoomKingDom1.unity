@@ -36105,6 +36105,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 4124100232476569104, guid: 1303fdc851e4b8a4b9e2dc8ce564bd38, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8479302594656251381, guid: 1303fdc851e4b8a4b9e2dc8ce564bd38, type: 3}
       propertyPath: maxhealth
       value: 300

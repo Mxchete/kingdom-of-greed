@@ -9,6 +9,8 @@ TagManager:
   - Boss
   - Enemy
   - Camera
+  - NPC
+  - InventoryPage
   layers:
   - Default
   - TransparentFX

@@ -12,56 +12,97 @@ public class SaveController : MonoBehaviour
     private HotbarController hotbarController;
     private string currentScene;
     private GameObject player;
-    //Start is called before the first frame update
+    private GameObject inventoryPanel;
+
+    //void Awake()
+    //{
+    //    SceneManager.sceneLoaded += OnLoad;
+    //}
+
     void Start()
     {
-        if(SceneManager.GetActiveScene().name != "StartMenu")
-        {
-            saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
-            inventoryController = FindObjectOfType<InventoryController>();
-            hotbarController = FindObjectOfType<HotbarController>();
-            //currentScene = SceneManager.GetActiveScene();
-            player = GameObject.FindGameObjectWithTag("Player");
-            LoadGame();
-        }
-        //saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
-        //inventoryController = FindObjectOfType<InventoryController>();
-        //hotbarController = FindObjectOfType<HotbarController>();
-        ////currentScene = SceneManager.GetActiveScene();
+        saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
+        inventoryController = FindObjectOfType<InventoryController>();
+        hotbarController = FindObjectOfType<HotbarController>();
         //player = GameObject.FindGameObjectWithTag("Player");
-        //LoadGame();
+        currentScene = SceneManager.GetActiveScene().name;
+        //SaveGame();
+        //player = GameObject.FindGameObjectWithTag("Player");
+        LoadGame();
     }
+    //void OnLoad(Scene scene, LoadSceneMode mode)
+    //{
+    //    if (scene.name != "StartMenu")
+    //    {
+    //    saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
+
+    //        LoadGame();
+    //    }
+    //}
 
 
     public void SaveGame()
     {
+        if (string.IsNullOrEmpty(saveLocation))
+        {
+            saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
+            Debug.LogWarning("Save location was uninitialized. Resetting it now.");
+        }
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
+
+        if (inventoryController == null)
+            inventoryController = FindObjectOfType<InventoryController>();
+
+        if (hotbarController == null)
+            hotbarController = FindObjectOfType<HotbarController>();
+
+        if (player == null || inventoryController == null || hotbarController == null)
+        {
+            Debug.LogWarning("SaveGame aborted: Missing required references.");
+            return;
+        }
+
+
         SaveData saveData = new SaveData
         {
-            playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position,
+            //playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position,
             //mapBoundary = FindObjectOfType<CinemachineConfiner>().m_BoundingShape2D.gameObject.name,
+            currentScene = SceneManager.GetActiveScene().name,
             inventorySaveData = inventoryController.GetInventoryItems(),
             hotbarSaveData = hotbarController.GetHotbarItems(),
-            currentScene = SceneManager.GetActiveScene().name,
+            
         };//this is writing a json
-
+        Debug.Log("Savedata");
         File.WriteAllText(saveLocation, JsonUtility.ToJson(saveData));
     }
 
     public void LoadGame()
     {
+
+        if (inventoryController == null)
+        {
+            Debug.LogError("InventoryController is NULL!");
+            return;
+        }
+        
         //KOGSceneManager.LoadScene(currentScene, LoadSceneMode.Single);
         if (File.Exists(saveLocation))
         {
 
             SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
-
-            player.transform.position = saveData.playerPosition;
-            Debug.Log("");
+            if (saveData.inventorySaveData == null)
+            {
+                Debug.LogError("inventorySaveData is NULL!");
+                return;
+            }
+            //player.transform.position = saveData.playerPosition;
+            //Debug.Log("Load");
             //FindObjectOfType<CinemachineConfiner>().m_BoundingShape2D = GameObject.Find(saveData.mapBoundary).GetComponent<PolygonCollider2D>();
             inventoryController.SetInventoryItems(saveData.inventorySaveData);
             hotbarController.SetHotbarItems(saveData.hotbarSaveData);
 
-
+            Debug.Log("Load");
         }
         else
         {
@@ -80,14 +121,29 @@ public class SaveController : MonoBehaviour
         //saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
 
         //player = GameObject.FindGameObjectWithTag("Player");
-        LoadGame();
+        SceneManager.LoadScene(currentScene, LoadSceneMode.Single);
     }
 
     public void loadMainMenu()
     {
         SaveGame();
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        SceneManager.LoadScene("StartMenu", LoadSceneMode.Single);
     }
+
+    //    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    //{
+    //    // Try to find the new inventory panel in the new scene
+    //    inventoryPanel = GameObject.Find("InventoryPanel");
+
+    //    if (inventoryPanel == null)
+    //    {
+    //        Debug.LogWarning("InventoryPanel not found in scene: " + scene.name);
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("InventoryPanel linked from GameManager in: " + scene.name);
+    //    }
+    //}
 }
 
 //new game

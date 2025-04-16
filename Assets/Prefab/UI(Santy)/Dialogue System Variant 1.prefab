@@ -879,7 +879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3367482828176170460
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1327,7 +1327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 6301050792816975125}
-  optionViewPrefab: {fileID: 0}
+  optionViewPrefab: {fileID: 1168617026659710805, guid: ab83cc34bb712884bb5c337823fd6163, type: 3}
   palette: {fileID: 0}
   fadeTime: 0.1
   showUnavailableOptions: 0

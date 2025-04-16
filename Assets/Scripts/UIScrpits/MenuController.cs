@@ -7,6 +7,7 @@ public class MenuController : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject menuCanvas;
+    
     void Start()
     {
         menuCanvas.SetActive(false);

@@ -10,14 +10,14 @@ public class MenuDeathController : MonoBehaviour
     void Start()
     {
         DeathMenu.SetActive(false);
-        player = GameObject.FindGameObjectWithTag("Player");
+        // = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
         //FindObjectOfType<Player>() == null
-        if (player.activeInHierarchy == false)
+        if (GameObject.FindGameObjectsWithTag("Player").Length == 0)
         {
             DeathMenu.SetActive(true);
         }

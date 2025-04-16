@@ -6,7 +6,7 @@ MonoImporter:
   defaultReferences:
   - inventoryPanel: {instanceID: 0}
   - slotPrefab: {instanceID: 0}
-  executionOrder: 400
+  executionOrder: 0
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 

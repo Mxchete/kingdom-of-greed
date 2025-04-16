@@ -1,7 +1,6 @@
 ﻿title: Guard
 tags:
 ---
-declare $favorability
 Guard: Halt! Who goes there?
 
 -> Get out of my way.

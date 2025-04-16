@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InventoryController : MonoBehaviour
 {
@@ -15,7 +18,10 @@ public class InventoryController : MonoBehaviour
     void Start()
     {
         itemDictionary = FindObjectOfType<ItemDictionary>();
-        //for(int i =0; i<slotCount; i++)
+
+        //GameObject itemDictionary = Resources.FindObjectsOfTypeAll<GameObject>().FirstOrDefault(go => go.name == "InventoryPanel" && !go.activeInHierarchy);
+
+        //for (int i = 0; i < slotCount; i++)
         //{
         //    Slot slot = Instantiate(slotPrefab, inventoryPanel.transform).GetComponent<Slot>();
         //    if (i < itemPrefabs.Length)
@@ -27,17 +33,33 @@ public class InventoryController : MonoBehaviour
         //}
     }
 
-    //void Awake()
+    //private void Awake()
     //{
-    //    //if (Instance == null)
-    //    //{
-    //    //    Instance = this;
-    //    //    DontDestroyOnLoad(gameObject);  // Ensure this object persists across scenes
-    //    //}
-    //    //else
-    //    //{
-    //    //    Destroy(gameObject);  // Destroy any other instances of this object
-    //    //}
+    //    SaveController saveController = GetComponent<SaveController>();
+    //    if (saveController != null)
+    //    {
+    //        saveController.LoadGame();
+    //    }
+    //    else
+    //    {
+    //        Debug.LogWarning("SaveController not found on this GameObject!");
+    //    }
+    //}
+
+
+    //private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    //{
+    //    // Try to find the new inventory panel in the new scene
+    //    inventoryPanel = GameObject.FindOfType("InventoryPanel",true);
+
+    //    if (inventoryPanel == null)
+    //    {
+    //        Debug.LogWarning("InventoryPanel not found in scene: " + scene.name);
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("InventoryPanel linked from GameManager in: " + scene.name);
+    //    }
     //}
 
     public bool AddItem(GameObject itemPrefab)
@@ -74,6 +96,7 @@ public class InventoryController : MonoBehaviour
 
     public void SetInventoryItems(List<InventorySaveData> inventorySaveData)
     {
+
         //clear inventory panel
         foreach(Transform child in inventoryPanel.transform)
         {

@@ -15,28 +15,30 @@ public class playerHealth : MonoBehaviour
 
     [SerializeField] private float healthRegenRate = 5f;
     [SerializeField] private float delayBeforeRegen = 2f;
-
+    private PlayerStats PlayerManager;
     private bool isRegenerating = false;
     private float timeSinceLastDamage = 0f;
 
     private void Start()
     {
         //PlayerStats.Instance.health = maxhealth;
-        HealthSlider.maxValue = PlayerStats.Instance.maxhealth;
-        HealthSlider.value = PlayerStats.Instance.maxhealth;
+        PlayerManager = FindAnyObjectByType<PlayerStats>();
+        HealthSlider.maxValue = PlayerManager.maxhealth;                
+        HealthSlider.value = PlayerManager.health;         
+
     }
 
     public void UpdateHealth(float mod)
     {
-        PlayerStats.Instance.health += mod;
+        PlayerManager.health += mod;
 
-        if (PlayerStats.Instance.health > PlayerStats.Instance.maxhealth)
+        if (PlayerManager.health > PlayerManager.maxhealth)
         {
-            PlayerStats.Instance.health = PlayerStats.Instance.maxhealth;
+            PlayerManager.health = PlayerManager.maxhealth;
         }
-        else if (PlayerStats.Instance.health <= 0)
+        else if (PlayerManager.health <= 0)
         {
-            PlayerStats.Instance.health = 0;
+            PlayerManager.health = 0;
             HealthSlider.value = 0f;
             gameObject.SetActive(false);
         }
@@ -50,7 +52,7 @@ public class playerHealth : MonoBehaviour
         }
 
         // Update health slider value here as well
-        HealthSlider.value = PlayerStats.Instance.health;
+        HealthSlider.value = PlayerManager.health;
     }
 
 
@@ -59,23 +61,23 @@ public class playerHealth : MonoBehaviour
     private void OnGUI()
     {
         float t = Time.deltaTime / 0.5f;
-        HealthSlider.value = Mathf.Lerp(HealthSlider.value, PlayerStats.Instance.health, t);
+        HealthSlider.value = Mathf.Lerp(HealthSlider.value, PlayerManager.health, t);
     }
 
     private IEnumerator RegenerateHealth()
     {
         isRegenerating = true;
 
-        while (PlayerStats.Instance.health < PlayerStats.Instance.maxhealth)
+        while (PlayerManager.health < PlayerManager.maxhealth)
         {
             timeSinceLastDamage += Time.deltaTime;
 
             if (timeSinceLastDamage >= delayBeforeRegen)
             {
-                PlayerStats.Instance.health += healthRegenRate * Time.deltaTime;
-                if (PlayerStats.Instance.health > PlayerStats.Instance.maxhealth)
+                PlayerManager.health += healthRegenRate * Time.deltaTime;
+                if (PlayerManager.health > PlayerManager.maxhealth)
                 {
-                    PlayerStats.Instance.health = PlayerStats.Instance.maxhealth;
+                    PlayerManager.health = PlayerManager.maxhealth;
                 }
             }
             yield return null;
