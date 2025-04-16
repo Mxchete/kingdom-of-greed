@@ -16,6 +16,10 @@ public class Player : Entity
     [SerializeField] private bool usePlayerStats = true;
     private bool statsInitialized = false;
 
+
+    private playerHealth healthUI;
+
+
     protected override void Awake()
     {
         // Initialize Entity components first
@@ -104,6 +108,11 @@ public class Player : Entity
 
         spriteRenderer.enabled = true;
         isInvulnerable = false;
+    }
+
+    public bool IsInvulnerable()
+    {
+        return isInvulnerable;
     }
 
     protected override void Die()

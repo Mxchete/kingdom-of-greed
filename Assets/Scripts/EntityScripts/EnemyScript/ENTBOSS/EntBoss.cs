@@ -214,6 +214,7 @@ public class EntBoss : Entity
             {
                 Vector2 direction = (hit.transform.position - transform.position).normalized;
                 playerComponent.TakeDamage(stompDamage, direction);
+                playerHealthComponent.UpdateHealth(-stompDamage);
             }
         }
     }
