@@ -55,6 +55,8 @@ public class Enemy : Entity
 
   private Coroutine regenCoroutine; // Store the coroutine reference
 
+  private Player playerComponent;
+
   protected override void Awake()
   {
     base.Awake();
@@ -146,6 +148,7 @@ public class Enemy : Entity
     if (Vector3.Distance(target.position, transform.position) <= attackRange && playerHealthComponent != null)
     {
       playerHealthComponent.UpdateHealth(-attackDamage);
+
     }
 
     // End attack animation
