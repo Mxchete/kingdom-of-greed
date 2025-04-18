@@ -9,11 +9,13 @@ public class HealthPotion : Item
     public float cooldown = 4f;
     //private float nextUseTime = 0f;
     private bool isOnCooldown = false;
+    private PlayerStats playerController;
     public override void UseItem()
     {
-        if (!isOnCooldown && PlayerStats.Instance.health < PlayerStats.Instance.maxhealth)
+        playerController = FindAnyObjectByType<PlayerStats>();
+        if (!isOnCooldown && playerController.health < playerController.maxhealth)
         {
-            PlayerStats.Instance.Heal(healthAmount); // Call the player's heal function
+            playerController.Heal(healthAmount); // Call the player's heal function
             Debug.Log("Used " + Name + ", restored " + healthAmount + " HP!");
             Destroy(gameObject);
 
