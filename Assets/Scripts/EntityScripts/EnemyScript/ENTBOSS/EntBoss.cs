@@ -79,6 +79,29 @@ public class EntBoss : Entity
 
     private void Update()
     {
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+
+
+        if (playerObj != null)
+        {
+            player = playerObj.transform;
+            playerHealthComponent = playerObj.GetComponent<playerHealth>();
+
+            if (playerHealthComponent == null)
+            {
+                Debug.LogWarning("playerHealth component not found on Player!");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Player object not found in scene!");
+        }
+        if (healthSlider != null)
+        {
+            healthSlider.maxValue = maxHealth;
+            healthSlider.value = health;
+        }
+        
         if (player == null || isDead) return;
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
