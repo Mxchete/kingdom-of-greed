@@ -3530,6 +3530,10 @@ PrefabInstance:
       propertyPath: playerIsHitSFX
       value: 
       objectReference: {fileID: 8300000, guid: 8b23b175a78d6b5458322e3a6c9905d0, type: 3}
+    - target: {fileID: 6354702537256638977, guid: a7c28eecf946a494a919b1d0a2f9947b, type: 3}
+      propertyPath: bossBattleMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 6880e74c5281e428cace07ef42b5a6d9, type: 3}
     - target: {fileID: 7049273881067968668, guid: a7c28eecf946a494a919b1d0a2f9947b, type: 3}
       propertyPath: Loop
       value: 1
