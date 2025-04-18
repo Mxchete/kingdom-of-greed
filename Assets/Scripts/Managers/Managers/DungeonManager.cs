@@ -28,6 +28,11 @@ public class DungeonManager : ManagerBase
 
   public void Create(int? possibleSeed)
   {
+    if (possibleSeed != null)
+    {
+      Debug.Log(possibleSeed);
+    }
+
     if (defaultRoomPrefab == null)
     {
       Debug.LogError("Room prefab is not assigned!");
@@ -35,6 +40,8 @@ public class DungeonManager : ManagerBase
     }
 
     int seed = possibleSeed ?? RandomNumberGenerator.GetInt32(Int32.MaxValue);
+
+    Debug.Log("Creating room with seed: " + seed);
 
     // Create a rule object for the main RoomType
     DungeonGenerator.Rule newRule = new DungeonGenerator.Rule

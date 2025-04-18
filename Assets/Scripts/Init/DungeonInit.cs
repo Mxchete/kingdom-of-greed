@@ -19,7 +19,7 @@ public class DungeonInit : MonoBehaviour
     {
       // Get DungeonManager instance
       dungeonManager = instance.Get<DungeonManager>();
-      int? seed = null;
+      int? seed = instance.GetSeed();
       dungeonManager.Create(seed);
       initDone = true;
       Debug.Log("Created dungeonmanager");

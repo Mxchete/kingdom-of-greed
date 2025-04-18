@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SeedWindow : MonoBehaviour
 {
+  string? seedAsString = null;
+
   private void Awake()
   {
     Hide();
@@ -25,8 +27,17 @@ public class SeedWindow : MonoBehaviour
 
     var sceneManager = instance.Get<KOGSceneManager>();
 
+    if (seedAsString != null)
+    {
+      instance.SetSeed(seedAsString.GetHashCode());
+    }
+
+    Debug.Log("Final seed: " + instance.GetSeed());
     sceneManager.LoadScene("StartRoom");
-    // sceneManager.LoadScene("Dungeon");
-    // sceneManager.LoadScene("BossRoomKingDom1");
+  }
+
+  public void GetSeed(string playerInput)
+  {
+    seedAsString = playerInput;
   }
 }

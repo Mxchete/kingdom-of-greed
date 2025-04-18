@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
   private static GameManager _instance;
   private static bool _canInstantiate;
+  private static int? seed = null;
 
   public static GameManager Instance
   {
@@ -61,6 +62,16 @@ public class GameManager : MonoBehaviour
     }
     Debug.LogWarning($"No data pool of type {type} found.");
     return null;
+  }
+
+  public void SetSeed(int? gameSeed)
+  {
+    seed = gameSeed;
+  }
+
+  public int? GetSeed()
+  {
+    return seed;
   }
 }
 
