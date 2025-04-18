@@ -2647,15 +2647,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1367645750923209003, guid: e140ac3cbcacf5d1d965ba685f3821a1, type: 3}
       propertyPath: m_Name
-      value: Main Camera (1)
+      value: Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 2415113933607305916, guid: e140ac3cbcacf5d1d965ba685f3821a1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -85
+      value: -30.2478
       objectReference: {fileID: 0}
     - target: {fileID: 2415113933607305916, guid: e140ac3cbcacf5d1d965ba685f3821a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -48.4
+      value: 4.320629
       objectReference: {fileID: 0}
     - target: {fileID: 2415113933607305916, guid: e140ac3cbcacf5d1d965ba685f3821a1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3514,6 +3514,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioCore
       objectReference: {fileID: 0}
+    - target: {fileID: 6354702537256638977, guid: a7c28eecf946a494a919b1d0a2f9947b, type: 3}
+      propertyPath: BossLaugh
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a759501bcea54f2abbe81c0c28778fb, type: 3}
     - target: {fileID: 6354702537256638977, guid: a7c28eecf946a494a919b1d0a2f9947b, type: 3}
       propertyPath: TownMusic
       value: 

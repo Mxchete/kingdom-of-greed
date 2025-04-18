@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Other SFX")]
     public AudioClip playerIsHitSFX;
+    public AudioClip BossLaugh;
 
     public static AudioManager Instance;
 

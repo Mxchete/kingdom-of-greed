@@ -51,10 +51,15 @@ public class EntBoss : Entity
 
     private playerHealth playerHealthComponent;
 
+    private AudioManager audioManager;
+
+
     protected override void Awake()
     {
         base.Awake();
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+
+        audioManager = FindObjectOfType<AudioManager>();
 
         if (playerObj != null)
         {
@@ -80,6 +85,10 @@ public class EntBoss : Entity
     private void Update()
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (audioManager != null)
+        {
+            audioManager.PlaySFX(audioManager.BossLaugh);
+        }
 
 
         if (playerObj != null)
@@ -101,7 +110,7 @@ public class EntBoss : Entity
             healthSlider.maxValue = maxHealth;
             healthSlider.value = health;
         }
-        
+
         if (player == null || isDead) return;
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
@@ -196,6 +205,7 @@ public class EntBoss : Entity
     {
         // Immediately trigger animation and skip any transition delay
         animator.Play("LaughIntro", 0, 0f); // Force play from start
+        audioManager.PlaySFX(audioManager.BossLaugh);
         animator.SetBool("PlayerDetected", true);
 
         // Wait for animation length instead of fixed duration
@@ -205,6 +215,7 @@ public class EntBoss : Entity
 
         // Play vine attack animation
         animator.SetTrigger("VineLaugh");
+        audioManager.PlaySFX(audioManager.BossLaugh);
 
         yield return new WaitForSeconds(4f);
         isLaughing = false;
@@ -248,6 +259,7 @@ public class EntBoss : Entity
         isAttacking = true;
 
         animator.Play("LaughVineAttack", 0, 0f);
+        audioManager.PlaySFX(audioManager.BossLaugh);
 
         yield return new WaitForSeconds(4f);
 
