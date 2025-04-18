@@ -74,21 +74,29 @@ public class Player : Entity
         // Handle damage
         if (statsInitialized)
         {
+            // 🔊 Play hit sound effect
+            audioManager?.PlaySFX(audioManager.playerIsHitSFX);
+
+            // Visual feedback
+            animator.SetFloat("HitDirectionX", direction.x);
+            animator.SetFloat("HitDirectionY", direction.y);
+            animator.Play("Hit", 0, 0f);
+
             health -= damage;
             health = GameController.health;
         }
         else
         {
+            // 🔊 Play hit sound effect
+            audioManager?.PlaySFX(audioManager.playerIsHitSFX);
+
+            // Visual feedback
+            animator.SetFloat("HitDirectionX", direction.x);
+            animator.SetFloat("HitDirectionY", direction.y);
+            animator.Play("Hit", 0, 0f);
+
             health -= damage;
         }
-
-        // 🔊 Play hit sound effect
-        audioManager?.PlaySFX(audioManager.playerIsHitSFX);
-
-        // Visual feedback
-        animator.SetFloat("HitDirectionX", direction.x);
-        animator.SetFloat("HitDirectionY", direction.y);
-        animator.Play("Hit", 0, 0f);
 
         if (health <= 0) Die();
         else StartCoroutine(InvulnerabilityPeriod());

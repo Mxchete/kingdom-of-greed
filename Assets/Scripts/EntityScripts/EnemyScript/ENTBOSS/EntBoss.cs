@@ -85,10 +85,6 @@ public class EntBoss : Entity
     private void Update()
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (audioManager != null)
-        {
-            audioManager.PlaySFX(audioManager.BossLaugh);
-        }
 
 
         if (playerObj != null)

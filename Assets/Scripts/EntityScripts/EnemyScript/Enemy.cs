@@ -60,6 +60,7 @@ public class Enemy : Entity
   protected override void Awake()
   {
     base.Awake();
+    playerComponent = GameObject.FindWithTag("Player").GetComponent<Player>();
     healthbar = GetComponentInChildren<FloatingHealthBar>();
         GameController = FindAnyObjectByType<PlayerStats>();
         if (healthbar == null)
@@ -148,6 +149,7 @@ public class Enemy : Entity
     if (Vector3.Distance(target.position, transform.position) <= attackRange && playerHealthComponent != null)
     {
       playerHealthComponent.UpdateHealth(-attackDamage);
+      playerComponent.TakeDamage(attackDamage);
 
     }
 

@@ -371,9 +371,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   health: 0
-  maxHealth: 50
-  deathAnimationDuration: 1
-  detectionRange: 15
+  maxHealth: 100
+  detectionRange: 10
   fleeHealthThreshold: 10
   avoidanceDistance: 5
   obstacleLayer:
@@ -387,10 +386,10 @@ MonoBehaviour:
   attackDamage: 15
   attackCooldown: 5
   attackRange: 4
-  attackWindup: 0.1
+  attackWindup: 0.5
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   healthbar: {fileID: 617291713087415719}
   healthRegenRate: 5
   delayBeforeRegen: 2
