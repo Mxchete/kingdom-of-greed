@@ -16,13 +16,20 @@ public class SaveController : MonoBehaviour
 
     //void Awake()
     //{
-    //    SceneManager.sceneLoaded += OnLoad;
+    //    inventoryController = FindObjectOfType<InventoryController>();
+    //    hotbarController = FindObjectOfType<HotbarController>();
     //}
 
     void Start()
     {
         saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
-        inventoryController = FindObjectOfType<InventoryController>();
+        //inventoryController = FindObjectOfType<InventoryController>();
+        inventoryController = GetComponent<InventoryController>();
+        //if (inventoryController == null)
+        //    Debug.LogError("InventoryController is NULL — not found on this GameObject!");
+        //else
+        //    Debug.Log("InventoryController found!");
+
         hotbarController = FindObjectOfType<HotbarController>();
         //player = GameObject.FindGameObjectWithTag("Player");
         currentScene = SceneManager.GetActiveScene().name;
@@ -51,13 +58,13 @@ public class SaveController : MonoBehaviour
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
 
+        //if (inventoryController == null)
+        //    inventoryController = FindObjectOfType<InventoryController>();
+
+        //if (hotbarController == null)
+        //    hotbarController = FindObjectOfType<HotbarController>();
+
         if (inventoryController == null)
-            inventoryController = FindObjectOfType<InventoryController>();
-
-        if (hotbarController == null)
-            hotbarController = FindObjectOfType<HotbarController>();
-
-        if (player == null || inventoryController == null || hotbarController == null)
         {
             Debug.LogWarning("SaveGame aborted: Missing required references.");
             return;
@@ -80,11 +87,11 @@ public class SaveController : MonoBehaviour
     public void LoadGame()
     {
 
-        if (inventoryController == null)
-        {
-            Debug.LogError("InventoryController is NULL!");
-            return;
-        }
+        //if (inventoryController == null)
+        //{
+        //    Debug.LogError("InventoryController is NULL!");
+        //    return;
+        //}
         
         //KOGSceneManager.LoadScene(currentScene, LoadSceneMode.Single);
         if (File.Exists(saveLocation))

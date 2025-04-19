@@ -17,9 +17,11 @@ public class InventoryController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //itemDictionary = FindObjectOfType<ItemDictionary>();
+        itemDictionary = FindObjectOfType<ItemDictionary>();
 
-        GameObject itemDictionary = Resources.FindObjectsOfTypeAll<GameObject>().FirstOrDefault(go => go.name == "InventoryPanel" && !go.activeInHierarchy);
+        //itemDictionary = GetComponentInChildren<ItemDictionary>();
+
+        //GameObject itemDictionary = Resources.FindObjectsOfTypeAll<GameObject>().FirstOrDefault(go => go.name == "InventoryPanel" && !go.activeInHierarchy);
 
         //for (int i = 0; i < slotCount; i++)
         //{
