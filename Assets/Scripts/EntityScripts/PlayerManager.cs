@@ -4,7 +4,7 @@ using Yarn.Unity;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static PlayerStats Instance;  // Singleton instance
+    //public static PlayerStats Instance;  // Singleton instance
 
     public float health = 100;
     public int maxhealth = 100;
@@ -23,22 +23,22 @@ public class PlayerStats : MonoBehaviour
 
     public InMemoryVariableStorage yarnVariables;
 
-    void Awake()
-    {
-        //// Ensure only one instance exists
-        //if (Instance == null)
-        //{
-        //    Instance = this;
-        //    DontDestroyOnLoad(gameObject);
+    //void Awake()
+    //{
+    //    //// Ensure only one instance exists
+    //    //if (Instance == null)
+    //    //{
+    //    //    Instance = this;
+    //    //    DontDestroyOnLoad(gameObject);
 
-        //    // Initializing health
-        //    health = maxhealth;
-        //}
-        //else
-        //{
-        //    Destroy(gameObject);
-        //}
-    }
+    //    //    // Initializing health
+    //    //    health = maxhealth;
+    //    //}
+    //    //else
+    //    //{
+    //    //    Destroy(gameObject);
+    //    //}
+    //}
 
     void Start()
     {

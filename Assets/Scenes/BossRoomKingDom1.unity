@@ -36211,6 +36211,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIWithVol
       objectReference: {fileID: 0}
+    - target: {fileID: 7729344289301601214, guid: ae7d45675ca924ee6888c042766e448a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1435681331}
+    - target: {fileID: 7729344289301601214, guid: ae7d45675ca924ee6888c042766e448a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SaveGame
+      objectReference: {fileID: 0}
     - target: {fileID: 8038369239503251330, guid: ae7d45675ca924ee6888c042766e448a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -36234,6 +36242,14 @@ PrefabInstance:
     - target: {fileID: 8038369239503251330, guid: ae7d45675ca924ee6888c042766e448a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464622501288491153, guid: ae7d45675ca924ee6888c042766e448a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1435681331}
+    - target: {fileID: 8464622501288491153, guid: ae7d45675ca924ee6888c042766e448a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: loadMainMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36396,6 +36412,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5187857857411864931, guid: 100d5656ebd4ff046af7cf3b59560d72, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1435681331}
+    - target: {fileID: 5187857857411864931, guid: 100d5656ebd4ff046af7cf3b59560d72, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: loadMainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 5734185108377717545, guid: 100d5656ebd4ff046af7cf3b59560d72, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -36423,6 +36447,14 @@ PrefabInstance:
     - target: {fileID: 6864320212242075589, guid: 100d5656ebd4ff046af7cf3b59560d72, type: 3}
       propertyPath: m_Name
       value: DeathMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160427511082358164, guid: 100d5656ebd4ff046af7cf3b59560d72, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1435681331}
+    - target: {fileID: 7160427511082358164, guid: 100d5656ebd4ff046af7cf3b59560d72, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: replay
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -42729,6 +42761,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1303fdc851e4b8a4b9e2dc8ce564bd38, type: 3}
+--- !u!114 &1435681331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7011922131059955600, guid: 1303fdc851e4b8a4b9e2dc8ce564bd38, type: 3}
+  m_PrefabInstance: {fileID: 1435681330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39f8631fab866a44b6f87df61f85316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1454200827
 PrefabInstance:
   m_ObjectHideFlags: 0

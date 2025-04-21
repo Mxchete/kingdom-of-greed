@@ -206,6 +206,5 @@ MonoBehaviour:
   ID: 0
   Name: Health potion
   description: Adds 20 health
-  icon: {fileID: 21300000, guid: 0dc1a08fde489cb469b5973c7df66ef8, type: 3}
   healthAmount: 20
-  cooldown: 50
+  cooldown: 49.3

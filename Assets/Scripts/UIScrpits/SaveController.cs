@@ -31,7 +31,7 @@ public class SaveController : MonoBehaviour
         //    Debug.Log("InventoryController found!");
 
         hotbarController = FindObjectOfType<HotbarController>();
-        //player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         currentScene = SceneManager.GetActiveScene().name;
         //SaveGame();
         //player = GameObject.FindGameObjectWithTag("Player");
@@ -133,7 +133,11 @@ public class SaveController : MonoBehaviour
 
     public void loadMainMenu()
     {
-        SaveGame();
+        if(player != null)
+        {
+            SaveGame();
+        }
+        
         SceneManager.LoadScene("StartMenu", LoadSceneMode.Single);
     }
 

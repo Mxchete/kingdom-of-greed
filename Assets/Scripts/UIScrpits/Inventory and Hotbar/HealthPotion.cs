@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//[CreateAssetMenu(fileName = "New Health Potion", menuName = "Inventory/Health Potion")]
 public class HealthPotion : Item
 {
     public int healthAmount = 20; // Amount of HP restored
