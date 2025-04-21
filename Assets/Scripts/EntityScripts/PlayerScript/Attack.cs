@@ -18,7 +18,6 @@ public class Attack : MonoBehaviour
     [Header("Bullet Settings")]
     public GameObject bullet; // Prefabs for range attacks
     public float fireForce = 10f;
-    float shootCoolDown = 0.25f;
     float shootTimer = 0.5f;
 
     [Header("Other Reference")]
@@ -46,26 +45,6 @@ public class Attack : MonoBehaviour
 
         }
 
-        //If 'q' or right mouse clicker is pressed
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(1))
-        {
-            // Attack Range
-            OnShoot();
-
-
-        }
-
-    }
-
-    void OnShoot()
-    {
-        if (shootTimer > shootCoolDown)
-        {
-            shootTimer = 0;
-            GameObject intBullet = Instantiate(bullet, Aim.position, Aim.rotation);
-            intBullet.GetComponent<Rigidbody2D>().AddForce(-Aim.up * fireForce, ForceMode2D.Impulse);
-            Destroy(intBullet, 2f);
-        }
     }
     void OnAttack()
     {

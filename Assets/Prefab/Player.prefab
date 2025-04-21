@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f59a9549fb334e958ea8ae6a4542468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 5
   weaponType: 0
   weapons:
   - {fileID: 5322587849932266455}
@@ -443,8 +443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   health: 0
-  maxHealth: 300
-  deathAnimationDuration: 5
+  maxHealth: 150
   Aim: {fileID: 9079516001477792748}
   currentWeapon: {fileID: 5322587849932266455}
 --- !u!114 &9168111145923072068
@@ -598,7 +597,6 @@ MonoBehaviour:
   moveSpeed: 5
   health: 0
   maxHealth: 300
-  deathAnimationDuration: 5
   currentWeapon: {fileID: 6674249091084736543}
   playerMovement: {fileID: 6089548678493101117}
   invulnerabilityDuration: 1
@@ -618,7 +616,6 @@ MonoBehaviour:
   moveSpeed: 0
   health: 0
   maxHealth: 0
-  deathAnimationDuration: 1
   currentWeapon: {fileID: 6674249091084736543}
   playerMovement: {fileID: 6089548678493101117}
   invulnerabilityDuration: 1
@@ -902,9 +899,21 @@ PrefabInstance:
       value: Sword
       objectReference: {fileID: 0}
     - target: {fileID: 2303669172496123270, guid: f297c67f52b584b21b936431c9a945d1, type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303669172496123270, guid: f297c67f52b584b21b936431c9a945d1, type: 3}
+      propertyPath: weapons.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303669172496123270, guid: f297c67f52b584b21b936431c9a945d1, type: 3}
       propertyPath: weapons.Array.data[0]
       value: 
       objectReference: {fileID: 5322587849932266455}
+    - target: {fileID: 2303669172496123270, guid: f297c67f52b584b21b936431c9a945d1, type: 3}
+      propertyPath: weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 1818199245467687970}
     - target: {fileID: 2303669172496123270, guid: f297c67f52b584b21b936431c9a945d1, type: 3}
       propertyPath: weapons.Array.data[2]
       value: 
@@ -913,6 +922,10 @@ PrefabInstance:
       propertyPath: weapons.Array.data[3]
       value: 
       objectReference: {fileID: 788335546951327816}
+    - target: {fileID: 2303669172496123270, guid: f297c67f52b584b21b936431c9a945d1, type: 3}
+      propertyPath: weapons.Array.data[4]
+      value: 
+      objectReference: {fileID: 3207778641386009512, guid: cf9dee2ca822e4a8b997beba4dda589a, type: 3}
     - target: {fileID: 3489439438875724195, guid: f297c67f52b584b21b936431c9a945d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.2
@@ -988,6 +1001,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 9079516001477792748}
     m_Modifications:
     - target: {fileID: 184601917768600751, guid: dff43cd904b914902af87fafead348fa, type: 3}
+      propertyPath: damage
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 184601917768600751, guid: dff43cd904b914902af87fafead348fa, type: 3}
+      propertyPath: weapons.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 184601917768600751, guid: dff43cd904b914902af87fafead348fa, type: 3}
       propertyPath: weapons.Array.data[0]
       value: 
       objectReference: {fileID: 5322587849932266455}
@@ -999,6 +1020,10 @@ PrefabInstance:
       propertyPath: weapons.Array.data[3]
       value: 
       objectReference: {fileID: 788335546951327816}
+    - target: {fileID: 184601917768600751, guid: dff43cd904b914902af87fafead348fa, type: 3}
+      propertyPath: weapons.Array.data[4]
+      value: 
+      objectReference: {fileID: 3207778641386009512, guid: cf9dee2ca822e4a8b997beba4dda589a, type: 3}
     - target: {fileID: 1029937917227896688, guid: dff43cd904b914902af87fafead348fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.2
@@ -1105,6 +1130,10 @@ PrefabInstance:
     - target: {fileID: 4459196334520630473, guid: 7d02a780bcc324916958cbd423789531, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -74.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793106685822145662, guid: 7d02a780bcc324916958cbd423789531, type: 3}
+      propertyPath: damage
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7793106685822145662, guid: 7d02a780bcc324916958cbd423789531, type: 3}
       propertyPath: weapons.Array.data[0]
