@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: -1518695825
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.032306872, g: 0.06619728, b: 0.6226415, a: 1}
+  m_Sprite: {fileID: -543396264, guid: f2f70aef9489448388f9cfc12a68b71f, type: 3}
+  m_Color: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -161,5 +161,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f59a9549fb334e958ea8ae6a4542468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  weaponType: 1
+  damage: 5
+  weaponType: 4
+  weapons:
+  - {fileID: 0}
+  - {fileID: 1478512610494922204, guid: f297c67f52b584b21b936431c9a945d1, type: 3}
+  - {fileID: 7277017209191057727, guid: dff43cd904b914902af87fafead348fa, type: 3}
+  - {fileID: 3207778641386009512}

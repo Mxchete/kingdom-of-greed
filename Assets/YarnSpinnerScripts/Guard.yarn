@@ -1,0 +1,67 @@
+﻿title: Guard
+tags:
+---
+Guard: Halt! Who goes there?
+
+-> Get out of my way.
+    <<jump AggressivePath>>
+-> I’m a mercenary looking for work.
+    <<jump MercenaryPath>>
+-> I killed all the Ents, let me in.
+    <<jump KillCheck>>
+
+===
+
+title: AggressivePath
+---
+
+Guard: Watch your tone, goblin. We don’t take kindly to threats around here.
+
+<<if $favorability > 5>>
+    Guard: Just for that you're a person of suspicion.  
+    Guard: Go kill 7 Ents and maybe I’ll think about letting you in.
+    <<set $killRequirement = 7>>
+
+<<else>>
+    Guard: You want in? Prove you’re not a threat.  
+    Guard: Kill 4 Ents and come back.
+    <<set $killRequirement = 4>>
+
+<<jump KillCheck>>
+<<endif>>
+===
+
+title: MercenaryPath
+---
+
+Guard: A mercenary? With that rusty sword and patchy gear?
+
+<<if $favorability > 5>>
+    Guard: You might be decent, but we still need to be cautious.  
+    Guard: Kill 6 Ents to earn entry.
+    <<set $killRequirement = 6>>
+
+<<else>>
+    Guard: If you want entry, I'll let you in for now for being nice.
+    <<set $killRequirement = 0>>
+
+<<jump KillCheck>>
+<<endif>>
+===
+
+title: KillCheck
+---
+
+<<if $entKillCount >= $killRequirement>>
+    Guard: Oh, you already got the kills. Well, you can go on in and talk to the village chief for work.
+    Guard: Don’t cause any trouble.
+    <<OpenVillageBarrier ToTown>>
+<<elseif $killRequirement == 999>>
+    Guard: OOH BRUTHER THIS GUY STINKS... 
+    Guard: of lies.
+<<else>>
+    Guard: Come back after you've killed {$killRequirement} Ents.
+<<endif>>
+
+===
+

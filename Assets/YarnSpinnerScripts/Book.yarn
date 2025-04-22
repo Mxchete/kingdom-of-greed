@@ -1,0 +1,108 @@
+﻿title: Book
+position: -374,-379
+---
+->read
+  <<jump entry1>>
+
+===
+
+title: entry1
+position: -365,-203
+---
+It seems like a war is coming again
+
+The winds carry stories—  
+Scattered whispers of the Demon King rising again.
+
+We dismissed them at first.  
+Tales spun by frightened traders and wandering monks.
+
+But the forest's gone quiet.  
+No birdsong. No breeze.  
+Only the stillness of something watching.
+->read
+  <<jump entry2>>
+
+===
+title: entry2
+position: -104,-201
+---
+It’s been two months since the second war started
+
+A rider came through the night.  
+No horse beneath him—just smoke and screaming hooves.  
+He spoke of an army that bleeds sap instead of blood.
+
+He said they do not march—they grow.  
+Out of the ground.  
+Out of our dead.
+
+We haven’t seen them yet...  
+But the roots near the graves are stirring.
+->read
+  <<jump entry3>>
+
+===
+title: entry3
+position: 160,-205
+---
+They caught Rellen last night.  
+
+Dragged him beneath the roots.  
+His screams faded like breath in winter.
+
+By morning, he was part of the forest.  
+His ribs curled around a tree trunk.  
+His eyes still wide, still begging.
+->read
+  <<jump entry4>>
+
+===
+title: entry4
+position: 163,-45
+---
+They don’t eat us.  
+
+They plant us.  
+Bury us alive.  
+Let the forest drink our decay.
+
+Blood becomes sap.  
+Bones become weapons.  
+I held a spear made from someone’s spine.
+->read
+  <<jump entry5>>
+
+===
+title: entry5
+position: 166,135
+---
+I ran.  
+They let me.  
+Laughed.
+
+The trees laughed too.
+
+They want me to carry this.  
+To tell you.  
+The woods are no longer woods.  
+
+They’re hungry.
+->read
+  <<jump entry6>>
+
+===
+title: entry6
+position: 165,349
+---
+If you find this...  
+Don’t come looking.
+
+Don’t bury us.  
+Don’t pray for us.
+
+Just burn it.  
+Burn the forest until even the ashes scream.
+
+-> END
+===

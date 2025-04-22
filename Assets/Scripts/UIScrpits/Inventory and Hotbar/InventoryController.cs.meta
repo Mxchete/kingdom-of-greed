@@ -3,8 +3,10 @@ guid: ca9333b8bc721f84799f72399bd2ff3f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 400
+  defaultReferences:
+  - inventoryPanel: {instanceID: 0}
+  - slotPrefab: {instanceID: 0}
+  executionOrder: 0
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 
