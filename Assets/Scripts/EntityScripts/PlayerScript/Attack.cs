@@ -16,13 +16,17 @@ public class Attack : MonoBehaviour
     public Transform Aim;
 
     [Header("Bullet Settings")]
-    public GameObject bullet;
+    public GameObject bullet; // Prefabs for range attacks
     public float fireForce = 10f;
-    float shootCoolDown = 0.25f;
     float shootTimer = 0.5f;
 
+    [Header("Other Reference")]
+    public Player player;
+    public PlayerMovement playerMovement;
 
     public Weapon weapon;
+
+    Weapon currentWeapon;
 
     // Update is called once per frame
     void Update()
@@ -32,6 +36,7 @@ public class Attack : MonoBehaviour
 
         shootTimer += Time.deltaTime;
 
+        // If statements for attack keys
         //If 'e' or left mouse clicker is pressed
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
@@ -40,26 +45,6 @@ public class Attack : MonoBehaviour
 
         }
 
-        //If 'q' or right mouse clicker is pressed
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(1))
-        {
-            // Attack Range
-            OnShoot();
-
-
-        }
-
-    }
-
-    void OnShoot()
-    {
-        if (shootTimer > shootCoolDown)
-        {
-            shootTimer = 0;
-            GameObject intBullet = Instantiate(bullet, Aim.position, Aim.rotation);
-            intBullet.GetComponent<Rigidbody2D>().AddForce(-Aim.up * fireForce, ForceMode2D.Impulse);
-            Destroy(intBullet, 2f);
-        }
     }
     void OnAttack()
     {
@@ -68,10 +53,16 @@ public class Attack : MonoBehaviour
             isAttacking = true;
 
             // Trigger attack animation
-            PlayerMovement playerMovement = GetComponent<PlayerMovement>();
-            if (playerMovement != null)
+            // PlayerMovement playerMovement = GetComponent<PlayerMovement>();
+            // Player player = GetComponent<Player>();
+            if (playerMovement != null && player != null)
             {
-                playerMovement.TriggerAttackAnimation();
+                player.Attack();
+
+
+            }
+            else{
+                Debug.LogWarning("Missing Player or PlayerMovement componment on object with attack.cs");
             }
 
         }

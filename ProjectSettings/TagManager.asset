@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Item
+  - Audio
+  - Boss
+  - Enemy
+  - Camera
+  - NPC
+  - InventoryPage
   layers:
   - Default
   - TransparentFX

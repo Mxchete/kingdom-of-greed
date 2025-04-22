@@ -5,22 +5,30 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public float damage = 1;
-    public enum WeaponType { Melee = 0, Sword = 1, Bullet = 2 }
+    public enum WeaponType { Melee = 0, Sword = 1, Axe = 2, HornClaw = 3, Bullet = 4 }
     public WeaponType weaponType;
 
     public GameObject[] weapons; // Array of all available weapons
-    private GameObject currentWeapon; // Currently equipped weapon
+    protected GameObject currentWeapon; // Currently equipped weapon
 
     private void Update()
     {
         // Hotkeys for equipping weapons
-        if (Input.GetKeyDown(KeyCode.V)) // Press 'V' to equip weapon at index 0 (Melee)
+        if (Input.GetKeyDown(KeyCode.Z)) // Press 'Z' to equip weapon at index 0 (Melee)
         {
             EquipWeapon(0);
         }
-        if (Input.GetKeyDown(KeyCode.B)) // Press 'B' to equip weapon at index 1 (Sword)
+        if (Input.GetKeyDown(KeyCode.X)) // Press 'X' to equip weapon at index 1 (Sword)
         {
             EquipWeapon(1);
+        }
+        if (Input.GetKeyDown(KeyCode.C)) // Press 'C' to equip weapon at index 2 (Axe)
+        {
+            EquipWeapon(2);
+        }
+        if (Input.GetKeyDown(KeyCode.V)) // Press 'V' to equip weapon at index 3 (Axe)
+        {
+            EquipWeapon(3);
         }
         // Add more hotkeys as needed
     }
@@ -56,6 +64,12 @@ public class Weapon : MonoBehaviour
                 weaponType = WeaponType.Sword;
                 break;
             case 2:
+                weaponType = WeaponType.Axe;
+                break;
+            case 3:
+                weaponType = WeaponType.HornClaw;
+                break;
+            case 4:
                 weaponType = WeaponType.Bullet;
                 break;
             default:
@@ -85,17 +99,16 @@ public class Weapon : MonoBehaviour
     }
 
     // Handle damage when the weapon collides with an enemy
-    private void OnTriggerEnter2D(Collider2D collision)
+    // In Weapon.cs (or wherever your attack logic is)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Enemy enemy = collision.GetComponent<Enemy>();
-        if (enemy != null)
+        if (other.CompareTag("Enemy") || other.CompareTag("Boss")) // Make sure boss has "Boss" tag
         {
-            enemy.TakeDamage(damage);
-
-
-            if (weaponType == WeaponType.Bullet)
+            Entity enemy = other.GetComponent<Entity>();
+            if (enemy != null)
             {
-                Destroy(gameObject); // Destroy bullets on hit
+                enemy.TakeDamage(damage);
+                Debug.Log($"Hit {other.name} for {damage} damage");
             }
         }
     }

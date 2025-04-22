@@ -1,0 +1,33 @@
+﻿title: Merchant
+tags:
+---
+Shady Merchant: Hey there young traveler, interested in some fine weaponary?
+-> Yes I have gold prepared.
+  <<jump Quest>>
+-> How do get gold?
+    Shady Merchant: Kill the town folk you see hiding from the ents in the area you came from.
+    Shady Merchant: ents like to hunt them for sport and coins are trick to think they could live if they get away.
+===
+
+title: Quest
+---
+<<if $firstVisit == true>>
+  >Shady Merchant: Thats great but prove to me you won't rat me out to the guards. 
+  Shady Merchant: Kill 15 town folk and I will give you a great weapon.
+  <<set $firstVisit = false>>
+
+<<jump shop>>
+
+<<endif>>
+===
+
+title: shop
+---
+->Horned sword (15 Gold)
+  <<if $gold > 15>>
+    Here you go!
+    <<buy(15)>>
+  <<else>>
+    Shady Merchant: You don't have enough money, just think of them as chickens for slaughter.
+  <<endif>>
+===

@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InventoryController : MonoBehaviour
 {
+    //public static InventoryController Instance;
     private ItemDictionary itemDictionary;
 
     public GameObject inventoryPanel;
@@ -14,7 +18,12 @@ public class InventoryController : MonoBehaviour
     void Start()
     {
         itemDictionary = FindObjectOfType<ItemDictionary>();
-        //for(int i =0; i<slotCount; i++)
+
+        //itemDictionary = GetComponentInChildren<ItemDictionary>();
+
+        //GameObject itemDictionary = Resources.FindObjectsOfTypeAll<GameObject>().FirstOrDefault(go => go.name == "InventoryPanel" && !go.activeInHierarchy);
+
+        //for (int i = 0; i < slotCount; i++)
         //{
         //    Slot slot = Instantiate(slotPrefab, inventoryPanel.transform).GetComponent<Slot>();
         //    if (i < itemPrefabs.Length)
@@ -25,6 +34,35 @@ public class InventoryController : MonoBehaviour
         //    }
         //}
     }
+
+    //private void Awake()
+    //{
+    //    SaveController saveController = GetComponent<SaveController>();
+    //    if (saveController != null)
+    //    {
+    //        saveController.LoadGame();
+    //    }
+    //    else
+    //    {
+    //        Debug.LogWarning("SaveController not found on this GameObject!");
+    //    }
+    //}
+
+
+    //private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    //{
+    //    // Try to find the new inventory panel in the new scene
+    //    inventoryPanel = GameObject.FindOfType("InventoryPanel",true);
+
+    //    if (inventoryPanel == null)
+    //    {
+    //        Debug.LogWarning("InventoryPanel not found in scene: " + scene.name);
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("InventoryPanel linked from GameManager in: " + scene.name);
+    //    }
+    //}
 
     public bool AddItem(GameObject itemPrefab)
     {
@@ -60,6 +98,7 @@ public class InventoryController : MonoBehaviour
 
     public void SetInventoryItems(List<InventorySaveData> inventorySaveData)
     {
+
         //clear inventory panel
         foreach(Transform child in inventoryPanel.transform)
         {
@@ -77,12 +116,19 @@ public class InventoryController : MonoBehaviour
             if (data.slotIndex < slotCount)
             {
                 Slot slot = inventoryPanel.transform.GetChild(data.slotIndex).GetComponent<Slot>();
-                GameObject itemPrefab = itemDictionary.GetItemPrefab(data.itemID);
+                if(itemDictionary != null)
+                {
+                 GameObject itemPrefab = itemDictionary.GetItemPrefab(data.itemID);
                 if (itemPrefab != null)
                 {
                     GameObject item = Instantiate(itemPrefab, slot.transform);
                     item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
                     slot.currentItem = item;
+                }
+                }
+                else
+                {
+                    Debug.Log("null item dictorinary");
                 }
             }
         }

@@ -1,0 +1,65 @@
+﻿title: village_elder
+tags:
+---
+It wasn’t always like this.
+
+The woods… they used to sway to a gentle rhythm.  
+Now all you hear are ghastly wails.
+
+We lost so many.  
+And more vanish every night.
+
+-> What happened?
+    <<jump betrayal>>
+
+===
+title: betrayal
+---
+The corruption spread quickly. We never thought the war would reach us so fast.  
+The forest died—and what replaced it is sadistic and hungry.
+
+-> Yeah the guard had  me kill some strange trees to enter here.
+    <<jump thanks>>
+
+===
+title: thanks
+---
+Then we owe you.
+
+Each one you fell...  
+That’s one less nightmare for us.
+
+Every bit of life is swallowed by the darkness.  
+Their greed is sickening.
+
+-> What can I do?
+    <<jump plea>>
+
+===
+title: plea
+---
+Some villagers were taken alive, but we have no idea what’s become of them.  
+The village hasn’t slept since the disappearances.
+
+We don’t know where.
+
+And now... Liri is gone.  
+The last child...  
+The last piece of my daughter I had.  
+She chased a voice into the forest—said she could hear her mom.
+
+-> Don’t worry, I’ll find her.
+    <<jump accept>>
+
+===
+title: accept
+---
+Then go with strength.
+
+If there’s anything left of who they were...  
+Try to reach it.
+
+<<unlockWeapon>>
+
+-> END
+===
