@@ -27,7 +27,6 @@ title: shop
   <<if $gold > 15>>
     Here you go!
     <<buy(15)>>
-    <<unlockHornedSword>>
   <<else>>
     Shady Merchant: You don't have enough money, just think of them as chickens for slaughter.
   <<endif>>

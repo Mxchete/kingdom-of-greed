@@ -381,11 +381,9 @@ MonoBehaviour:
   stuckTimeThreshold: 2
   randomMovementForce: 1
   stuckDistanceThreshold: 0.1
-  repulsionForce: 3
-  repulsionRadius: 2
   attackDamage: 15
   attackCooldown: 5
-  attackRange: 4
+  attackRange: 5.7
   attackWindup: 0.6
   playerLayer:
     serializedVersion: 2

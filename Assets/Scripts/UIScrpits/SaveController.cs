@@ -135,10 +135,15 @@ public class SaveController : MonoBehaviour
     {
         if(player != null)
         {
-            SaveGame();
+            // SaveGame();
         }
         
-        SceneManager.LoadScene("StartMenu", LoadSceneMode.Single);
+//	GameManager instance = GameManager.Instance;
+//	var dungeonManager = instance.Get<DungeonManager>();
+//	dungeonManager.DestroyMe();
+
+//        SceneManager.LoadScene("StartMenu", LoadSceneMode.Single);
+        Application.Quit();
     }
 
     //    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

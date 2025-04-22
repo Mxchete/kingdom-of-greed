@@ -23,8 +23,8 @@ public class Enemy : Entity
   public float stuckDistanceThreshold = 0.1f; // Distance below which the enemy is considered stuck
 
   [Header("Repulsion")]
-  public float repulsionForce = 5f; // Force to push enemies apart
-  public float repulsionRadius = 2f; // Radius within which enemies repel each other
+  private float repulsionForce = 0f; // Force to push enemies apart
+  private float repulsionRadius = 0f; // Radius within which enemies repel each other
 
   [Header("Attack Settings")]
   public int attackDamage = 5; // Reduced damage
@@ -73,6 +73,7 @@ public class Enemy : Entity
 
   private void Start()
   {
+    deathAnimationDuration = 1f;
     target = GameObject.FindWithTag("Player").transform;
     if (target != null)
     {
@@ -95,8 +96,6 @@ public class Enemy : Entity
     if (isDead) return;
 
     if (target == null) return;
-
-    CheckIfStuck();
 
     float distanceToPlayer = Vector3.Distance(target.position, transform.position);
 

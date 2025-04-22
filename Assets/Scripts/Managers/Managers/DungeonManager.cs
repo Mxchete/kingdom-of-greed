@@ -99,5 +99,10 @@ public class DungeonManager : ManagerBase
   {
     generator.gameObject.SetActive(true);
   }
+
+  public void DestroyMe()
+  {
+    GameObject.Destroy(generator.gameObject);
+  }
 }
 

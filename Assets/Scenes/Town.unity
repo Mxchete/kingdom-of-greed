@@ -224795,6 +224795,22 @@ PrefabInstance:
       propertyPath: startingNode
       value: Merchant
       objectReference: {fileID: 0}
+    - target: {fileID: 2869895019493868490, guid: 45025b1548e95964e9b4de2ddaeffe34, type: 3}
+      propertyPath: m_Size.x
+      value: 8.996611
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869895019493868490, guid: 45025b1548e95964e9b4de2ddaeffe34, type: 3}
+      propertyPath: m_Size.y
+      value: 10.834289
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869895019493868490, guid: 45025b1548e95964e9b4de2ddaeffe34, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.1030128
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869895019493868490, guid: 45025b1548e95964e9b4de2ddaeffe34, type: 3}
+      propertyPath: m_Offset.y
+      value: -4.8002925
+      objectReference: {fileID: 0}
     - target: {fileID: 3292315298918734506, guid: 45025b1548e95964e9b4de2ddaeffe34, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.329895
@@ -224838,6 +224854,22 @@ PrefabInstance:
     - target: {fileID: 5559350987139827697, guid: 45025b1548e95964e9b4de2ddaeffe34, type: 3}
       propertyPath: m_Name
       value: Merchant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623324947909429176, guid: 45025b1548e95964e9b4de2ddaeffe34, type: 3}
+      propertyPath: m_Size.x
+      value: 8.987469
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623324947909429176, guid: 45025b1548e95964e9b4de2ddaeffe34, type: 3}
+      propertyPath: m_Size.y
+      value: 10.868222
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623324947909429176, guid: 45025b1548e95964e9b4de2ddaeffe34, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.095799446
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623324947909429176, guid: 45025b1548e95964e9b4de2ddaeffe34, type: 3}
+      propertyPath: m_Offset.y
+      value: -4.8220363
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -226340,7 +226372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6974526866636348671, guid: 6cedd3a84f5104b7893f7abc48e0c5c5, type: 3}
       propertyPath: startingNode
-      value: village elder
+      value: village_elder
       objectReference: {fileID: 0}
     - target: {fileID: 7309183318579478491, guid: 6cedd3a84f5104b7893f7abc48e0c5c5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -278510,7 +278542,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MAIN MENU
+  m_text: QUIT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -281096,9 +281128,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'MAIN
-
-    MENU'
+  m_text: QUIT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}

@@ -1133,7 +1133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7793106685822145662, guid: 7d02a780bcc324916958cbd423789531, type: 3}
       propertyPath: damage
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7793106685822145662, guid: 7d02a780bcc324916958cbd423789531, type: 3}
       propertyPath: weapons.Array.data[0]
